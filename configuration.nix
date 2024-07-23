@@ -122,6 +122,8 @@
     (retroarch.overrideAttrs (oldAttrs: {
       cores = [ dolphin mgba ];
     }))
+    baobab
+    nvtopPackages.intel
   ];
 
   programs.tmux.enable = true;
