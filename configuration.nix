@@ -116,7 +116,6 @@
     firebird-emu
     vlc
     haskellPackages.hoogle
-    stack
     haskellPackages.parallel
     waypipe
     (retroarch.overrideAttrs (oldAttrs: {

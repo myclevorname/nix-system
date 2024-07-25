@@ -15,5 +15,14 @@
         ({ config, pkgs, llvm-ez80, ... }: { environment.systemPackages = [ llvm-ez80.packages.${system}.llvm-ez80 ]; })
       ];
     };
+    nixosConfigurations."clevor-laptop-nixos-with-benjamin" = nixpkgs.lib.nixosSystem rec {
+      system = "x86_64-linux";
+      specialArgs = attrs;
+      modules = [
+        ./configuration.nix
+        ./benjamin.nix
+        ({ config, pkgs, llvm-ez80, ... }: { environment.systemPackages = [ llvm-ez80.packages.${system}.llvm-ez80 ]; })
+      ];
+    };
   };
 }
