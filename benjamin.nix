@@ -11,6 +11,9 @@
     extraGroups = [ "libvirtd" "users" ];
     packages = with pkgs; [];
   };
+
+  environment.systemPackages = with pkgs; [ openjdk22 ];
+
   services.desktopManager.plasma6.enable = true;
   services.desktopManager.plasma6.enableQt5Integration = true;
   services.displayManager.sddm.enable = true;
