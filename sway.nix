@@ -27,6 +27,7 @@
   environment.etc = {
     "sway/config".source = lib.mkForce ./sway-config;
     "sway/background.png".source = ./macaw.png;
+    "xdg/foot/foot.ini".source = ./foot.ini;
   };
 
   programs = {
