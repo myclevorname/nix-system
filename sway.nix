@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   users.users.clevor = {
@@ -22,6 +22,11 @@
   hardware.pulseaudio = {
     enable = true;
     support32Bit = true;
+  };
+
+  environment.etc = {
+    "sway/config".source = lib.mkForce ./sway-config;
+    "sway/background.png".source = ./macaw.png;
   };
 
   programs = {
