@@ -5,18 +5,21 @@
 { config, pkgs, ... }:
 
 {
-  users.users.bpf = {
-    isNormalUser = true;
-    description = "Benjamin Connelly";
-    extraGroups = [ "libvirtd" "users" ];
-    packages = with pkgs; [];
+  specialisation."benjamin".configuration = {
+    users.users.bpf = {
+      isNormalUser = true;
+      description = "Benjamin Connelly";
+      extraGroups = [ "libvirtd" "users" ];
+      packages = with pkgs; [];
+    };
+
+
+    environment.systemPackages = with pkgs; [ openjdk22 ];
+
+    services.desktopManager.plasma6.enable = true;
+    services.desktopManager.plasma6.enableQt5Integration = true;
+    services.displayManager.sddm.enable = true;
+    services.displayManager.sddm.autoNumlock = true;
+    services.displayManager.sddm.wayland.enable = true;
   };
-
-  environment.systemPackages = with pkgs; [ openjdk22 ];
-
-  services.desktopManager.plasma6.enable = true;
-  services.desktopManager.plasma6.enableQt5Integration = true;
-  services.displayManager.sddm.enable = true;
-  services.displayManager.sddm.autoNumlock = true;
-  services.displayManager.sddm.wayland.enable = true;
 }

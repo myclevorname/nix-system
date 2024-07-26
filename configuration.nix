@@ -10,6 +10,7 @@
       ./hardware-configuration.nix
       ./sway.nix
       ./x32.nix
+      ./benjamin.nix
     ];
 
   fileSystems."/mnt/share" = {
