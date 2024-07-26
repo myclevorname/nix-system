@@ -1,3 +1,0 @@
-[submodule "llvm-ez80"]
-	path = llvm-ez80
-	url = ./llvm-ez80/

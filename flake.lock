@@ -25,17 +25,17 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1721699112,
-        "narHash": "sha256-d9ZC626Rnz3G8U7ob2djXji9tRuDdXvHDWScbi4LW5s=",
-        "ref": "refs/heads/master",
-        "rev": "3b4d50a202c1882cfa8edef7ffebdd229dfa2daf",
-        "revCount": 3,
-        "type": "git",
-        "url": "file:///etc/nixos/llvm-ez80"
+        "lastModified": 1722005392,
+        "narHash": "sha256-w3HDVNeQjxx40weAISmMynf0ScitoUweeWTudU94nMM=",
+        "owner": "myclevorname",
+        "repo": "llvm-ez80",
+        "rev": "45ae15d9e67a42be9ba83180c296c196d74e619c",
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "file:///etc/nixos/llvm-ez80"
+        "owner": "myclevorname",
+        "repo": "llvm-ez80",
+        "type": "github"
       }
     },
     "llvm-ez80_2": {
