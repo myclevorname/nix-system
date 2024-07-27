@@ -16,11 +16,14 @@
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/031e37e6-c637-4692-a5e8-fdce224ff647";
+    { device = "/dev/disk/by-uuid/49af3e55-9340-4b06-bcd7-9a322c7d92c4";
       fsType = "ext4";
     };
 
-  boot.initrd.luks.devices."clevor_pool-NixOS".device = "/dev/disk/by-uuid/031e37e6-c637-4692-a5e8-fdce224ff647";
+  boot.initrd.luks.devices."nixos" = {
+    device = "/dev/disk/by-uuid/031e37e6-c637-4692-a5e8-fdce224ff647";
+    preLVM = false;
+  };
 
   fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/8022-283B";
