@@ -10,17 +10,17 @@
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-intel" "hid-nintendo" ];
+  boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/841cf718-7f18-49fb-96d3-8f0165f3fdb3";
+    { device = "/dev/disk/by-uuid/031e37e6-c637-4692-a5e8-fdce224ff647";
       fsType = "ext4";
     };
 
-  boot.initrd.luks.devices."luks-72090c27-a2cf-4655-876a-de5cee69644e".device = "/dev/disk/by-uuid/72090c27-a2cf-4655-876a-de5cee69644e";
+  boot.initrd.luks.devices."clevor_pool-NixOS".device = "/dev/disk/by-uuid/031e37e6-c637-4692-a5e8-fdce224ff647";
 
   fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/8022-283B";
