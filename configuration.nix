@@ -90,41 +90,42 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    wget
-    git
-    gauche
-    firefox
-    htop
-    gh
-    gnumake
-    gcc
-    zig
-    tilem
-    nasm
-    fasmg
-    prismlauncher
-    dolphin-emu
-    ghc
+    baobab
+    bluetuith
     cabal-install
+    dolphin-emu
+    elinks
+    fasmg
+    firebird-emu
+    firefox
+    gauche
+    gcc
+    gh
+    ghc
+    git
+    gnumake
+    haskellPackages.hoogle
+    haskellPackages.parallel
+    htop
     jmtpfs
-    wf-recorder
-    moreutils
     man-pages
     man-pages-posix
     metadata
-    bluetuith
-    firebird-emu
-    vlc
-    haskellPackages.hoogle
-    haskellPackages.parallel
-    waypipe
+    moreutils
+    nasm
+    nvtopPackages.intel
     (retroarch.overrideAttrs (oldAttrs: {
       cores = [ dolphin mgba ];
     }))
-    baobab
-    nvtopPackages.intel
-    elinks
+    prismlauncher
+    spasm-ng
+    tilem
+    vim
+    vlc
+    waypipe
+    wf-recorder
+    wget
+    zig
   ];
 
   programs.tmux.enable = true;
