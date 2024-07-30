@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, wallpapers, ... }:
 
 {
   users.users.clevor = {
@@ -24,11 +24,19 @@
     support32Bit = true;
   };
 
-  environment.etc = {
-    "sway/config".source = lib.mkForce ./sway-config;
-    "sway/background.png".source = ./macaw.png;
-    "xdg/foot/foot.ini".source = ./foot.ini;
-  };
+  environment.etc = let
+    background = derivation {
+      name = "macaw.png";
+      system = "x86_64-linux";
+      builder = ./build-wallpaper.sh;
+      args = [ "${pkgs.ffmpeg}/bin/ffmpeg" "${wallpapers}/backgrounds/macaw.jpg" ];
+    };
+  in
+    {
+      "sway/config".source = lib.mkForce ./sway-config;
+      "sway/background.png".source = background;
+      "xdg/foot/foot.ini".source = ./foot.ini;
+    };
 
   programs = {
     sway = {

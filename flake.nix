@@ -10,10 +10,14 @@
       submodules = true;
       flake = false;
     };
+    wallpapers = {
+      url = "github:ParrotSec/parrot-wallpapers";
+      flake = false;
+    };
   };
   # I will not use flake-utils as I want to reduce the amount of dependencies I have.
 
-  outputs = { self, nixpkgs, llvm-ez80, cemu-ti }@attrs: {
+  outputs = { self, nixpkgs, llvm-ez80, cemu-ti, wallpapers }@attrs: {
     nixosConfigurations."clevor-laptop-nixos" = nixpkgs.lib.nixosSystem rec {
       system = "x86_64-linux";
       specialArgs = attrs;

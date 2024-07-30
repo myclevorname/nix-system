@@ -90,11 +90,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1722062969,
-        "narHash": "sha256-QOS0ykELUmPbrrUGmegAUlpmUFznDQeR4q7rFhl8eQg=",
+        "lastModified": 1722185531,
+        "narHash": "sha256-veKR07psFoJjINLC8RK4DiLniGGMgF3QMlS4tb74S6k=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "b73c2221a46c13557b1b3be9c2070cc42cf01eb3",
+        "rev": "52ec9ac3b12395ad677e8b62106f0b98c1f8569d",
         "type": "github"
       },
       "original": {
@@ -108,7 +108,8 @@
       "inputs": {
         "cemu-ti": "cemu-ti",
         "llvm-ez80": "llvm-ez80",
-        "nixpkgs": "nixpkgs_2"
+        "nixpkgs": "nixpkgs_2",
+        "wallpapers": "wallpapers"
       }
     },
     "systems": {
@@ -123,6 +124,22 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
+        "type": "github"
+      }
+    },
+    "wallpapers": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1706034561,
+        "narHash": "sha256-IcBJJygvAw0wFzdeweR9w4JVjElDxsfQx6BUAxSGMMo=",
+        "owner": "ParrotSec",
+        "repo": "parrot-wallpapers",
+        "rev": "792e34a115afd64b79155d16504b2e2bef323ab2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ParrotSec",
+        "repo": "parrot-wallpapers",
         "type": "github"
       }
     }
