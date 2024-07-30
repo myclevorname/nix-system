@@ -19,6 +19,16 @@
       specialArgs = attrs;
       modules = [
         ./configuration.nix
+        ./hardware-configuration.nix
+        ./network-configuration.nix
+        ({ config, pkgs, llvm-ez80, ... }: { environment.systemPackages = [ llvm-ez80.packages.${system}.llvm-ez80 self.packages.${system}.cemu-ti ]; })
+      ];
+    };
+    nixosConfigurations."clevor-laptop-nixos-generic" = nixpkgs.lib.nixosSystem rec {
+      system = "x86_64-linux";
+      specialArgs = attrs;
+      modules = [
+        ./configuration.nix
         ({ config, pkgs, llvm-ez80, ... }: { environment.systemPackages = [ llvm-ez80.packages.${system}.llvm-ez80 self.packages.${system}.cemu-ti ]; })
       ];
     };
