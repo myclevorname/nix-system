@@ -95,6 +95,7 @@
     metadata
     moreutils
     nasm
+    nix-output-monitor
     nvtopPackages.intel
     (retroarch.overrideAttrs (oldAttrs: {
       cores = [ dolphin mgba ];
