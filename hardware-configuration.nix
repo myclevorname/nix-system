@@ -13,6 +13,12 @@
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
+  # Should help performance when swapping
+  boot.kernel.mg-lru.enable = true;
+
+  # Reduse swapping
+  boot.kernel.sysctl = { "vm.swappiness" = 10; };
+
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
   fileSystems."/" =
