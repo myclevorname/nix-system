@@ -81,6 +81,9 @@
     elinks
     firebird-emu
     firefox
+    (writeShellScriptBin "flush-swap" ''
+      swapoff -a ; swapon -a
+    '')
     gauche
     gcc
     gh
