@@ -63,7 +63,7 @@
     isNormalUser = true;
     description = "Sam Connelly";
     group = "clevor";
-    extraGroups = [ "networkmanager" "wheel" "libvirtd" "users" "boinc" ];
+    extraGroups = [ "networkmanager" "wheel" "libvirtd" "users" ];
     packages = with pkgs; [];
   };
 
@@ -79,13 +79,10 @@
     cemu-ti
     dolphin-emu
     elinks
-    firebird-emu
     firefox
     (writeShellScriptBin "flush-swap" ''
       swapoff -a ; swapon -a
     '')
-    gauche
-    gcc
     gh
     ghc
     git
@@ -104,7 +101,6 @@
       cores = [ dolphin mgba ];
     }))
     prismlauncher
-    spasm-ng
     vim
     vlc
     wf-recorder
@@ -112,7 +108,6 @@
   ];
 
   programs.tmux.enable = true;
-  services.boinc.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -150,6 +145,10 @@
 
   virtualisation.libvirtd.enable = true;
   programs.virt-manager.enable = true;
-  programs.steam.enable = true;
-  services.joycond.enable = true;
+
+  # Haven't used it in a while
+  # programs.steam.enable = true;
+
+  # Not allowed to use joycons
+  # services.joycond.enable = true;
 }

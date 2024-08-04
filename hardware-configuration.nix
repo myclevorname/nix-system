@@ -37,12 +37,6 @@
     options = [ "fmask=0022" "dmask=0022" ];
   };
 
-  fileSystems."/mnt/steam" = {
-    device = "/dev/disk/by-uuid/c40f046e-fa91-4b8a-b7f8-1f844dc1b800";
-    fsType = "ext4";
-    neededForBoot = false;
-  };
-
   fileSystems."/var/tmp" = {
     device = "tmpfs";
     fsType = "tmpfs";
