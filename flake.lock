@@ -3,11 +3,11 @@
     "cemu-ti": {
       "flake": false,
       "locked": {
-        "lastModified": 1722937886,
-        "narHash": "sha256-yk2w4N9kWJ2+qCkxyQPxaUizGFhUbheZ2m6yDcO2hJ8=",
+        "lastModified": 1722971756,
+        "narHash": "sha256-du0M0xmKN5qxqw43uYl4Im6ZJuPcbmtdFDtcBJxvEtA=",
         "ref": "refs/heads/master",
-        "rev": "7089dc85427b37af1b4ee723eb5a91d818f53d54",
-        "revCount": 2440,
+        "rev": "9de08bc718f27378b59674e09fbd014802fb86a1",
+        "revCount": 2442,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/CE-Programming/CEmu"
@@ -130,11 +130,11 @@
     "wallpapers": {
       "flake": false,
       "locked": {
-        "lastModified": 1706034561,
-        "narHash": "sha256-IcBJJygvAw0wFzdeweR9w4JVjElDxsfQx6BUAxSGMMo=",
+        "lastModified": 1722961067,
+        "narHash": "sha256-vLmO4/a+T96nrGHsbtASZIx0ulv3h1UJzCHWS2Y7KBk=",
         "owner": "ParrotSec",
         "repo": "parrot-wallpapers",
-        "rev": "792e34a115afd64b79155d16504b2e2bef323ab2",
+        "rev": "4ff44a016b9ef772f4fc2b1f6b45ee553a596420",
         "type": "github"
       },
       "original": {
