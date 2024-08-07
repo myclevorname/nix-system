@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     llvm-ez80.url = "github:myclevorname/llvm-ez80";
+    tilp-pkgs.url = "github:NixOS/nixpkgs/21.11";
     cemu-ti = {
       url = "https://github.com/CE-Programming/CEmu";
       type = "git";
@@ -17,7 +18,7 @@
   };
   # I will not use flake-utils as I want to reduce the amount of dependencies I have.
 
-  outputs = { self, nixpkgs, llvm-ez80, cemu-ti, wallpapers }@attrs: {
+  outputs = { self, nixpkgs, llvm-ez80, cemu-ti, wallpapers, tilp-pkgs }@attrs: {
     nixosConfigurations."clevor-laptop-nixos" = nixpkgs.lib.nixosSystem rec {
       system = "x86_64-linux";
       specialArgs = attrs;
@@ -26,7 +27,6 @@
         ./hardware-configuration.nix
         ./network-configuration.nix
         self.nixosModules.mg-lru
-        ({ config, pkgs, llvm-ez80, ... }: { environment.systemPackages = [ llvm-ez80.packages.${system}.llvm-ez80 self.packages.${system}.cemu-ti ]; })
       ];
     };
     nixosModules.mg-lru = { config, lib, ... }: {
@@ -72,7 +72,6 @@
       modules = [
         ./configuration.nix
         self.nixosModules.mg-lru
-        ({ config, pkgs, llvm-ez80, ... }: { environment.systemPackages = [ llvm-ez80.packages.${system}.llvm-ez80 self.packages.${system}.cemu-ti ]; })
       ];
     };
     packages."x86_64-linux".cemu-ti = (import nixpkgs { system = "x86_64-linux"; }).pkgs.cemu-ti.overrideAttrs (finalAttrs: oldAttrs: {
