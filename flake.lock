@@ -3,11 +3,11 @@
     "cemu-ti": {
       "flake": false,
       "locked": {
-        "lastModified": 1723170396,
-        "narHash": "sha256-LS9kSSdaX2YxNEbuoLX0021pAyT7SBWODurpZ4lzT7U=",
+        "lastModified": 1723229069,
+        "narHash": "sha256-63T3pk9cH3H5Zz0uVlxg2znfUxyTyFIz7AH74EbGgxE=",
         "ref": "refs/heads/master",
-        "rev": "967a0d93f349e99eaca615c2727f0119e190b5c0",
-        "revCount": 2452,
+        "rev": "d934c67dd8d6a78d62240e5da3d0ced125186524",
+        "revCount": 2462,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/CE-Programming/CEmu"

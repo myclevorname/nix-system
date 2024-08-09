@@ -81,7 +81,7 @@
     elinks
     firefox
     (writeShellScriptBin "flush-swap" ''
-      swapoff -a ; swapon -a
+      systemctl restart swap.target
     '')
     gh
     ghc
