@@ -69,7 +69,6 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-  nix.settings.auto-optimise-store = true;
 
 
   # List packages installed in system profile. To search, run:
