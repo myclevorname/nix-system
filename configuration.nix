@@ -5,12 +5,18 @@
 { config, pkgs, llvm-ez80, tilp-pkgs, self, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./sway.nix
-      ./x32.nix
-      ./benjamin.nix
-    ];
+  imports = [
+    ./sway.nix
+    ./x32.nix
+    ./benjamin.nix
+  ];
+
+  # Custom module config
+  boot.kernel.x32.enable = true;
+  boot.kernel.mg-lru.enable = true;
+  programs.sway.clevorConfig.enable = true;
+  users.benjamin.enable = true;
+
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;

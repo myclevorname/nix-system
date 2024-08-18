@@ -2,24 +2,29 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, benjamin, lib, ... }:
 
 {
-  specialisation."benjamin".configuration = {
-    users.users.bpf = {
-      isNormalUser = true;
-      description = "Benjamin Connelly";
-      extraGroups = [ "libvirtd" "users" ];
-      packages = with pkgs; [];
+  options = {
+    users.benjamin.enable = lib.mkEnableOption "the specialization for the user Benjamin.";
+  };
+
+  config = lib.mkIf config.users.benjamin.enable {
+    specialisation."benjamin".configuration = {
+      users.users.bpf = {
+        isNormalUser = true;
+        description = "Benjamin Connelly";
+        extraGroups = [ "libvirtd" "users" ];
+        packages = with pkgs; [];
+      };
+
+      environment.systemPackages = with pkgs; [ openjdk22 ];
+
+      services.desktopManager.plasma6.enable = true;
+      services.desktopManager.plasma6.enableQt5Integration = true;
+      services.displayManager.sddm.enable = true;
+      services.displayManager.sddm.autoNumlock = true;
+      services.displayManager.sddm.wayland.enable = true;
     };
-
-
-    environment.systemPackages = with pkgs; [ openjdk22 ];
-
-    services.desktopManager.plasma6.enable = true;
-    services.desktopManager.plasma6.enableQt5Integration = true;
-    services.displayManager.sddm.enable = true;
-    services.displayManager.sddm.autoNumlock = true;
-    services.displayManager.sddm.wayland.enable = true;
   };
 }
