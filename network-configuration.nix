@@ -13,7 +13,7 @@
 #    neededForBoot = false;
 #  };
 
-#  networking.hosts = {
-#    "172.16.0.126" = [ "clevor-rpi.local" "clevor-rpi" "rpi" "rpi.local" ];
-#  };
+  networking.hosts = {
+    "172.16.0.190" = [ "clevor-rpi.local" "clevor-rpi" "rpi" "rpi.local" ];
+  };
 }
