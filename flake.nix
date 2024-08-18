@@ -18,7 +18,8 @@
   };
   # I will not use flake-utils as I want to reduce the amount of dependencies I have.
 
-  outputs = { self, nixpkgs, llvm-ez80, cemu-ti, wallpapers, tilp-pkgs }@attrs: {
+  outputs = { self, nixpkgs, llvm-ez80, cemu-ti, wallpapers, tilp-pkgs }@attrs: 
+    let nixpkgs' = import nixpkgs { system = "x86_64-linux"; }; in {
     nixosConfigurations."clevor-laptop-nixos" = nixpkgs.lib.nixosSystem rec {
       system = "x86_64-linux";
       specialArgs = attrs;
@@ -74,9 +75,20 @@
         self.nixosModules.mg-lru
       ];
     };
-    packages."x86_64-linux".cemu-ti = (import nixpkgs { system = "x86_64-linux"; }).pkgs.cemu-ti.overrideAttrs (finalAttrs: oldAttrs: {
-      version = "unstable";
-      src = cemu-ti;
-    });
+    packages."x86_64-linux" = {
+      cemu-ti = nixpkgs'.pkgs.cemu-ti.overrideAttrs {
+        version = "unstable";
+        src = cemu-ti;
+      };
+      nix = nixpkgs'.pkgs.nix.overrideAttrs (final: old: {
+        patchPhase = (if old ? patchPhase then old.patchPhase else "") + ''
+          substituteInPlace src/nix/optimise-store.cc --replace-fail '"optimise"' '"optimize"'
+          substituteInPlace src/nix/optimise-store.md --replace-fail 'store optimise' 'store optimize' --replace-fail \
+            ')""' 'Note that the original command is `nix store optimise`, but clevor made a patch that changes it to `nix store optimize`.
+          
+          )""'
+        '';
+      });
+    };
   };
 }

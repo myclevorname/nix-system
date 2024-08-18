@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, llvm-ez80, tilp-pkgs, ... }:
+{ config, pkgs, llvm-ez80, tilp-pkgs, self, ... }:
 
 {
   imports =
@@ -140,6 +140,9 @@
   system.stateVersion = "unstable"; # Did you read the comment?
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  # Risky! Changes `nix store optimise` to `nix store optimize` because I am American.
+  nix.package = self.packages.x86_64-linux.nix;
 
   zramSwap = {
     enable = true;
