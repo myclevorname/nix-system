@@ -15,10 +15,11 @@
       url = "github:ParrotSec/parrot-wallpapers";
       flake = false;
     };
+    spasm.url = "github:myclevorname/nixpkgs/spasm-ng";
   };
   # I will not use flake-utils as I want to reduce the amount of dependencies I have.
 
-  outputs = { self, nixpkgs, llvm-ez80, cemu-ti, wallpapers, tilp-pkgs }@attrs: 
+  outputs = { self, nixpkgs, llvm-ez80, cemu-ti, wallpapers, tilp-pkgs, spasm }@attrs: 
     let nixpkgs' = import nixpkgs { system = "x86_64-linux"; }; in {
     nixosConfigurations."clevor-laptop-nixos" = nixpkgs.lib.nixosSystem rec {
       system = "x86_64-linux";

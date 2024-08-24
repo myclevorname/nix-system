@@ -109,8 +109,25 @@
         "cemu-ti": "cemu-ti",
         "llvm-ez80": "llvm-ez80",
         "nixpkgs": "nixpkgs_2",
+        "spasm": "spasm",
         "tilp-pkgs": "tilp-pkgs",
         "wallpapers": "wallpapers"
+      }
+    },
+    "spasm": {
+      "locked": {
+        "lastModified": 1724455408,
+        "narHash": "sha256-J7BF+BF83hFGQCWGho/W/QiqcE14HR1pdbhz7ZXCoPA=",
+        "owner": "myclevorname",
+        "repo": "nixpkgs",
+        "rev": "ecd4a41e6906528794f4119a4763d0f0a7c0d927",
+        "type": "github"
+      },
+      "original": {
+        "owner": "myclevorname",
+        "ref": "spasm-ng",
+        "repo": "nixpkgs",
+        "type": "github"
       }
     },
     "systems": {

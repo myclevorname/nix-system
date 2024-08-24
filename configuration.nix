@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, llvm-ez80, tilp-pkgs, self, ... }:
+{ config, pkgs, llvm-ez80, tilp-pkgs, self, spasm, ... }:
 
 {
   imports = [
@@ -108,6 +108,7 @@
       cores = [ dolphin mgba ];
     }))
     prismlauncher
+    spasm.legacyPackages.x86_64-linux.spasm-ng
     vim
     vlc
     wf-recorder
