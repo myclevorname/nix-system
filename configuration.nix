@@ -82,7 +82,7 @@
   environment.systemPackages = with pkgs; [
     baobab
     bluetuith
-#    cabal-install
+    cabal-install
     cemu-ti
     dolphin-emu
     elinks

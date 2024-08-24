@@ -80,7 +80,7 @@
         version = "unstable";
         src = cemu-ti;
       };
-      nix = nixpkgs'.pkgs.nix.overrideAttrs (final: old: {
+      nix = nixpkgs'.pkgs.nixVersions.nix_2_24.overrideAttrs (final: old: {
         patchPhase = (if old ? patchPhase then old.patchPhase else "") + ''
           substituteInPlace src/nix/optimise-store.cc --replace-fail '"optimise"' '"optimize"'
           substituteInPlace src/nix/optimise-store.md --replace-fail 'store optimise' 'store optimize' --replace-fail \
