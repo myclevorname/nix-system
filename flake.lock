@@ -3,11 +3,11 @@
     "cemu-ti": {
       "flake": false,
       "locked": {
-        "lastModified": 1724644020,
-        "narHash": "sha256-ta3dfTM44qL1RLD+eaaaiY/P47GPDEcd923jqYrV8x4=",
+        "lastModified": 1724716406,
+        "narHash": "sha256-KSa8HQrncfNdJE+csBBFpyGi58RcCs7sqmv+V/UU0M8=",
         "ref": "refs/heads/master",
-        "rev": "66883cc860d97352a7446479800562891594b60f",
-        "revCount": 2480,
+        "rev": "846fa83302759ee54da03c4962a5285973730836",
+        "revCount": 2483,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/CE-Programming/CEmu"
@@ -90,11 +90,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1724479785,
-        "narHash": "sha256-pP3Azj5d6M5nmG68Fu4JqZmdGt4S4vqI5f8te+E/FTw=",
+        "lastModified": 1725103162,
+        "narHash": "sha256-Ym04C5+qovuQDYL/rKWSR+WESseQBbNAe5DsXNx5trY=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "d0e1602ddde669d5beb01aec49d71a51937ed7be",
+        "rev": "12228ff1752d7b7624a54e9c1af4b222b3c1073b",
         "type": "github"
       },
       "original": {
