@@ -109,6 +109,7 @@
     }))
     prismlauncher
     spasm.legacyPackages.x86_64-linux.spasm-ng
+    tilem
     vim
     vlc
     wf-recorder
