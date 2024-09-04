@@ -17,6 +17,8 @@
   programs.sway.clevorConfig.enable = true;
   users.benjamin.enable = true;
 
+  hardware.graphics.enable = true;
+
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
