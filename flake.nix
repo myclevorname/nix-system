@@ -3,14 +3,11 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    llvm-ez80.url = "github:myclevorname/llvm-ez80";
-    tilp-pkgs.url = "github:NixOS/nixpkgs/21.11";
-    cemu-ti = {
-      url = "https://github.com/CE-Programming/CEmu";
-      type = "git";
-      submodules = true;
-      flake = false;
+    my-pkgs = {
+      url = "github:myclevorname/flake";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
+    tilp-pkgs.url = "github:NixOS/nixpkgs/21.11";
     wallpapers = {
       url = "github:ParrotSec/parrot-wallpapers";
       flake = false;
@@ -19,7 +16,7 @@
   };
   # I will not use flake-utils as I want to reduce the amount of dependencies I have.
 
-  outputs = { self, nixpkgs, llvm-ez80, cemu-ti, wallpapers, tilp-pkgs, spasm }@attrs: 
+  outputs = { self, nixpkgs, my-pkgs, wallpapers, tilp-pkgs, spasm }@attrs:
     let nixpkgs' = import nixpkgs { system = "x86_64-linux"; }; in {
     nixosConfigurations."clevor-laptop-nixos" = nixpkgs.lib.nixosSystem rec {
       system = "x86_64-linux";
@@ -77,10 +74,6 @@
       ];
     };
     packages."x86_64-linux" = {
-      cemu-ti = nixpkgs'.pkgs.cemu-ti.overrideAttrs {
-        version = "unstable";
-        src = cemu-ti;
-      };
       nix = nixpkgs'.pkgs.nixVersions.nix_2_24.overrideAttrs (final: old: {
         patchPhase = (if old ? patchPhase then old.patchPhase else "") + ''
           substituteInPlace src/nix/optimise-store.cc --replace-fail '"optimise"' '"optimize"'

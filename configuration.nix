@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, llvm-ez80, tilp-pkgs, self, spasm, ... }:
+{ config, pkgs, my-pkgs, tilp-pkgs, self, spasm, lib, ... }:
 
 {
   imports = [
@@ -16,9 +16,6 @@
   boot.kernel.mg-lru.enable = true;
   programs.sway.clevorConfig.enable = true;
   users.benjamin.enable = true;
-
-  hardware.graphics.enable = true;
-
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -116,7 +113,7 @@
     vlc
     wf-recorder
     wget
-    llvm-ez80.packages.${system}.default
+    my-pkgs.packages.${system}.ce-toolchain
     tilp-pkgs.legacyPackages.${system}.tilp2
   ];
 
@@ -163,7 +160,7 @@
   programs.virt-manager.enable = true;
 
   # Haven't used it in a while
-  # programs.steam.enable = true;
+  programs.steam.enable = true;
 
   # Not allowed to use joycons
   # services.joycond.enable = true;
