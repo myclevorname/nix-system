@@ -1,5 +1,23 @@
 {
   "nodes": {
+    "convbin": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1720998131,
+        "narHash": "sha256-vBE+jaQBQREKWYrOOEFLXZt8stAAqGhxvTZhEC5+Xds=",
+        "ref": "refs/heads/master",
+        "rev": "c142a6c5ebb4e83be29961ccf70080cd169a6091",
+        "revCount": 169,
+        "submodules": true,
+        "type": "git",
+        "url": "https://github.com/mateoconlechuga/convbin"
+      },
+      "original": {
+        "submodules": true,
+        "type": "git",
+        "url": "https://github.com/mateoconlechuga/convbin"
+      }
+    },
     "llvm-ez80": {
       "flake": false,
       "locked": {
@@ -18,6 +36,7 @@
     },
     "my-pkgs": {
       "inputs": {
+        "convbin": "convbin",
         "llvm-ez80": "llvm-ez80",
         "nixpkgs": [
           "nixpkgs"
@@ -25,11 +44,11 @@
         "toolchain": "toolchain"
       },
       "locked": {
-        "lastModified": 1725810773,
-        "narHash": "sha256-rwlBknaejDgEzKld003Qmd9YSoRv4dLaiE2jcHrl4JA=",
+        "lastModified": 1725835906,
+        "narHash": "sha256-X/po5iiCKBjRaUCcTeQIkWLAs8iM1HJZ44Ajegf2z2g=",
         "owner": "myclevorname",
         "repo": "flake",
-        "rev": "62b70eee3a18b0372d5c8b772c64281f6c5f4956",
+        "rev": "27fef4a32e9229c9118d6c092654857c5b7d5f81",
         "type": "github"
       },
       "original": {
