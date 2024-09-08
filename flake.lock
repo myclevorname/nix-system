@@ -25,11 +25,11 @@
         "toolchain": "toolchain"
       },
       "locked": {
-        "lastModified": 1725738898,
-        "narHash": "sha256-ULQWKza+VWrhL3UrYimgrH9VIPnjRSvf+oPHQcC/btM=",
+        "lastModified": 1725810773,
+        "narHash": "sha256-rwlBknaejDgEzKld003Qmd9YSoRv4dLaiE2jcHrl4JA=",
         "owner": "myclevorname",
         "repo": "flake",
-        "rev": "c044fbf8398190ceede5d4f28adcc1bfa0deb8e2",
+        "rev": "62b70eee3a18b0372d5c8b772c64281f6c5f4956",
         "type": "github"
       },
       "original": {
