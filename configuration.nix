@@ -22,25 +22,17 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "clevor-laptop-nixos"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
   networking.networkmanager.enable = true;
-
-  # Enable Bluetooth
   hardware.bluetooth.enable = true;
 
   # Support the Joycon controllers
-#  services.joycond.enable = true;
+  # services.joycond.enable = true;
 
   # Set your time zone.
   time.timeZone = "America/New_York";
 
-  # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 
   i18n.extraLocaleSettings = {
@@ -55,7 +47,6 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
     variant = "";
@@ -69,67 +60,17 @@
     description = "Sam Connelly";
     group = "clevor";
     extraGroups = [ "networkmanager" "wheel" "libvirtd" "users" ];
-    packages = with pkgs; [];
   };
 
-  # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
   environment.systemPackages = with pkgs; [
-    baobab
-    bluetuith
-    cabal-install
-    cemu-ti
-    dolphin-emu
-    elinks
-    firefox
-    (writeShellScriptBin "flush-swap" ''
-      swapoff -a; systemctl restart swap.target
-    '')
-    gh
-    ghc
-    git
-    gnumake
-    haskellPackages.hoogle
-    htop
-    jmtpfs
-    man-pages
-    man-pages-posix
-    metadata
-    moreutils
-    nasm
-    nix-output-monitor
-    nvtopPackages.intel
-    (retroarch.overrideAttrs (oldAttrs: {
-      cores = [ dolphin mgba ];
-    }))
-    prismlauncher
-    spasm.legacyPackages.x86_64-linux.spasm-ng
-    tilem
     vim
-    vlc
-    wf-recorder
-    wget
-    my-pkgs.packages.${system}.ce-toolchain
-    tilp-pkgs.legacyPackages.${system}.tilp2
   ];
 
   programs.tmux.enable = true;
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
   # Open ports in the firewall.
@@ -144,7 +85,7 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "unstable"; # Did you read the comment?
+  system.stateVersion = "24.11"; # Did you read the comment?
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -161,7 +102,4 @@
 
   # Haven't used it in a while
   programs.steam.enable = true;
-
-  # Not allowed to use joycons
-  # services.joycond.enable = true;
 }

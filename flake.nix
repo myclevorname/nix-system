@@ -3,6 +3,10 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     my-pkgs = {
       url = "github:myclevorname/flake";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -16,17 +20,31 @@
   };
   # I will not use flake-utils as I want to reduce the amount of dependencies I have.
 
-  outputs = { self, nixpkgs, my-pkgs, wallpapers, tilp-pkgs, spasm }@attrs:
-    let nixpkgs' = import nixpkgs { system = "x86_64-linux"; }; in {
+  outputs = { self, nixpkgs, my-pkgs, wallpapers, tilp-pkgs, spasm, home-manager }@attrs:
+    let
+      nixpkgs' = import nixpkgs { system = "x86_64-linux"; };
+      commonConfig = [
+        ./configuration.nix
+        self.nixosModules.mg-lru
+        home-manager.nixosModules.home-manager
+        {
+          home-manager = {
+            backupFileExtension = "hm.bak";
+            extraSpecialArgs = attrs;
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            users.clevor = import ./home.nix;
+          };
+        }
+      ];
+    in {
     nixosConfigurations."clevor-laptop-nixos" = nixpkgs.lib.nixosSystem rec {
       system = "x86_64-linux";
       specialArgs = attrs;
       modules = [
-        ./configuration.nix
         ./hardware-configuration.nix
         ./network-configuration.nix
-        self.nixosModules.mg-lru
-      ];
+      ] ++ commonConfig;
     };
     nixosModules.mg-lru = { config, lib, ... }: {
       options = {
@@ -68,10 +86,7 @@
     nixosConfigurations."clevor-laptop-nixos-generic" = nixpkgs.lib.nixosSystem rec {
       system = "x86_64-linux";
       specialArgs = attrs;
-      modules = [
-        ./configuration.nix
-        self.nixosModules.mg-lru
-      ];
+      modules = commonConfig;
     };
     packages."x86_64-linux" = {
       nix = nixpkgs'.pkgs.nixVersions.nix_2_24.overrideAttrs (final: old: {

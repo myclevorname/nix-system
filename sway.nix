@@ -16,7 +16,6 @@
 
     environment.systemPackages = with pkgs; [
       mako
-      foot
       grim
       slurp
       wofi
@@ -33,17 +32,25 @@
       support32Bit = true;
     };
 
-    environment.etc = let
-      background = derivation {
+    home-manager.users.clevor = let
+      background = pkgs.stdenv.mkDerivation {
         name = "macaw.png";
-        system = "x86_64-linux";
-        builder = ./build-wallpaper.sh;
-        args = [ "${pkgs.ffmpeg}/bin/ffmpeg" "${wallpapers}/backgrounds/macaw.jpg" ];
+        src = builtins.toString wallpapers + "/backgrounds/macaw.jpg";
+        dontUnpack = true;
+        nativeBuildInputs = with pkgs; [ ffmpeg ];
+        installPhase = ''
+          ffmpeg -i $src $out
+        '';
+      }; in
+    {
+      home.file = {
+        ".sway/config".source = ./sway-config;
+        ".sway/background.png".source = background;
       };
-    in {
-      "sway/config".source = lib.mkForce ./sway-config;
-      "sway/background.png".source = background;
-      "xdg/foot/foot.ini".source = ./foot.ini;
+      programs.foot = {
+        enable = true;
+        settings.main.font = "Terminal:size=10.5";
+      };
     };
 
     programs = {

@@ -15,16 +15,20 @@
         isNormalUser = true;
         description = "Benjamin Connelly";
         extraGroups = [ "libvirtd" "users" ];
-        packages = with pkgs; [];
+        packages = with pkgs; [ openjdk22 ];
       };
 
-      environment.systemPackages = with pkgs; [ openjdk22 ];
-
-      services.desktopManager.plasma6.enable = true;
-      services.desktopManager.plasma6.enableQt5Integration = true;
-      services.displayManager.sddm.enable = true;
-      services.displayManager.sddm.autoNumlock = true;
-      services.displayManager.sddm.wayland.enable = true;
+      services = {
+        desktopManager = {
+          plasma6.enable = true;
+          plasma6.enableQt5Integration = true;
+        };
+        displayManager.sddm = {
+          enable = true;
+          autoNumlock = true;
+          wayland.enable = true;
+        };
+      };
     };
   };
 }

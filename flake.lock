@@ -18,6 +18,42 @@
         "url": "https://github.com/mateoconlechuga/convbin"
       }
     },
+    "decbot4Src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1723476330,
+        "narHash": "sha256-hnbm14A222Y7zZ+KRcLpJN3t93/CB7eB2H0cjp2IKEM=",
+        "owner": "cemetech",
+        "repo": "decbot4",
+        "rev": "ab7b0bb7662d5bf750d68f15370cb78ad828a80a",
+        "type": "gitlab"
+      },
+      "original": {
+        "owner": "cemetech",
+        "repo": "decbot4",
+        "type": "gitlab"
+      }
+    },
+    "home-manager": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1725893417,
+        "narHash": "sha256-fj2LxTZAncL/s5NrtXe1nLfO0XDvRixtCu3kmV9jDPw=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "10541f19c584fe9633c921903d8c095d5411e041",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "type": "github"
+      }
+    },
     "llvm-ez80": {
       "flake": false,
       "locked": {
@@ -37,6 +73,7 @@
     "my-pkgs": {
       "inputs": {
         "convbin": "convbin",
+        "decbot4Src": "decbot4Src",
         "llvm-ez80": "llvm-ez80",
         "nixpkgs": [
           "nixpkgs"
@@ -44,11 +81,11 @@
         "toolchain": "toolchain"
       },
       "locked": {
-        "lastModified": 1725835906,
-        "narHash": "sha256-X/po5iiCKBjRaUCcTeQIkWLAs8iM1HJZ44Ajegf2z2g=",
+        "lastModified": 1725841998,
+        "narHash": "sha256-SyaYorKKScJC3lwmIzs/L9JVKn3EInvz3jnmMPx8SVY=",
         "owner": "myclevorname",
         "repo": "flake",
-        "rev": "27fef4a32e9229c9118d6c092654857c5b7d5f81",
+        "rev": "fa2591259b67f3dcc9cbc397b522ebd69312a3de",
         "type": "github"
       },
       "original": {
@@ -75,6 +112,7 @@
     },
     "root": {
       "inputs": {
+        "home-manager": "home-manager",
         "my-pkgs": "my-pkgs",
         "nixpkgs": "nixpkgs",
         "spasm": "spasm",
