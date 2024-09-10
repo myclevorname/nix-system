@@ -54,7 +54,7 @@
       modules = commonConfig;
     };
     packages."x86_64-linux" = {
-      nix = nixpkgs'.pkgs.nixVersions.nix_2_24.overrideAttrs (final: old: {
+      nix = nixpkgs'.pkgs.nixVersions.nix_2_23.overrideAttrs (final: old: {
         patchPhase = (if old ? patchPhase then old.patchPhase else "") + ''
           substituteInPlace src/nix/optimise-store.cc --replace-fail '"optimise"' '"optimize"'
           substituteInPlace src/nix/optimise-store.md --replace-fail 'store optimise' 'store optimize' --replace-fail \
