@@ -13,6 +13,7 @@
     baobab
     bluetuith
     cabal-install
+    my-pkgs.packages.${system}.ce-toolchain
     cemu-ti
     dolphin-emu
     elinks
@@ -40,12 +41,11 @@
     prismlauncher
     spasm.legacyPackages.x86_64-linux.spasm-ng
     tilem
+    tilp-pkgs.legacyPackages.${system}.tilp2
     vim
     vlc
     wf-recorder
     wget
-    my-pkgs.packages.${system}.ce-toolchain
-    tilp-pkgs.legacyPackages.${system}.tilp2
   ];
 
   home.stateVersion = "24.11";
