@@ -15,7 +15,7 @@
         isNormalUser = true;
         description = "Benjamin Connelly";
         extraGroups = [ "libvirtd" "users" ];
-        packages = with pkgs; [ openjdk22 ];
+        packages = with pkgs; [ openjdk22 gcc ];
       };
 
       services = {
