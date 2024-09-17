@@ -16,11 +16,10 @@
       url = "github:ParrotSec/parrot-wallpapers";
       flake = false;
     };
-    spasm.url = "github:myclevorname/nixpkgs/spasm-ng";
   };
   # I will not use flake-utils as I want to reduce the amount of dependencies I have.
 
-  outputs = { self, nixpkgs, my-pkgs, wallpapers, tilp-pkgs, spasm, home-manager }@attrs:
+  outputs = { self, nixpkgs, my-pkgs, wallpapers, tilp-pkgs, home-manager }@attrs:
     let
       nixpkgs' = import nixpkgs { system = "x86_64-linux"; };
       commonConfig = [

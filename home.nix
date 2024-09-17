@@ -1,4 +1,4 @@
-{ pkgs, spasm, my-pkgs, tilp-pkgs, ... }:
+{ pkgs, my-pkgs, tilp-pkgs, ... }:
 {
   programs.bash = {
     enable = true;
@@ -39,7 +39,7 @@
       cores = [ dolphin mgba ];
     }))
     prismlauncher
-    spasm.legacyPackages.x86_64-linux.spasm-ng
+    spasm-ng
     tilem
     tilp-pkgs.legacyPackages.${system}.tilp2
     vim
