@@ -14,7 +14,14 @@
     bluetuith
     cabal-install
     my-pkgs.packages.${system}.ce-toolchain
-    cemu-ti
+    (cemu-ti.overrideAttrs {
+      dontWrapQtApps = true;
+      fixupPhase = ''
+        runHook preFixup
+        wrapQtApp $out/bin/CEmu --add-flags "--platform xcb"
+        runHook postFixup
+      '';
+    })
     dolphin-emu
     elinks
     firefox
