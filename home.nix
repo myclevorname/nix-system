@@ -14,6 +14,7 @@
     bluetuith
     cabal-install
     my-pkgs.packages.${system}.ce-toolchain
+    cargo
     (cemu-ti.overrideAttrs {
       dontWrapQtApps = true;
       fixupPhase = ''
@@ -46,6 +47,7 @@
       cores = [ dolphin mgba ];
     }))
     prismlauncher
+    rustc
     spasm-ng
     tilem
     tilp-pkgs.legacyPackages.${system}.tilp2

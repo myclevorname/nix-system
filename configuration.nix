@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, my-pkgs, tilp-pkgs, self, spasm, lib, ... }:
+{ config, pkgs, self, ... }:
 
 {
   imports = [
@@ -70,8 +70,13 @@
   ];
 
   programs.tmux.enable = true;
-
   services.openssh.enable = true;
+
+  services.printing.enable = true;
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+  };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
