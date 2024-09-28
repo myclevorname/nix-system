@@ -14,7 +14,6 @@
     bluetuith
     cabal-install
     my-pkgs.packages.${system}.ce-toolchain
-    cargo
     (cemu-ti.overrideAttrs {
       dontWrapQtApps = true;
       fixupPhase = ''
@@ -23,6 +22,7 @@
         runHook postFixup
       '';
     })
+    ciscoPacketTracer8 # https://lms.netacad.com/mod/page/view.php?id=85083644
     dolphin-emu
     elinks
     firefox
@@ -47,7 +47,6 @@
       cores = [ dolphin mgba ];
     }))
     prismlauncher
-    rustc
     spasm-ng
     tilem
     tilp-pkgs.legacyPackages.${system}.tilp2

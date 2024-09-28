@@ -72,11 +72,12 @@
   programs.tmux.enable = true;
   services.openssh.enable = true;
 
-  services.printing.enable = true;
-  services.avahi = {
-    enable = true;
-    nssmdns4 = true;
-  };
+  # Aah remove scary
+  # services.printing.enable = true;
+  # services.avahi = {
+  #   enable = true;
+  #   nssmdns4 = true;
+  # };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
