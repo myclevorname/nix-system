@@ -12,7 +12,7 @@
   ];
 
   # Custom module config
-  boot.kernel.x32.enable = true;
+  # boot.kernel.x32.enable = true; # I don't rely on it
   boot.kernel.mg-lru.enable = true;
   programs.sway.clevorConfig.enable = true;
   users.benjamin.enable = true;
@@ -72,12 +72,11 @@
   programs.tmux.enable = true;
   services.openssh.enable = true;
 
-  # Aah remove scary
-  # services.printing.enable = true;
-  # services.avahi = {
-  #   enable = true;
-  #   nssmdns4 = true;
-  # };
+  services.printing.enable = true;
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+  };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

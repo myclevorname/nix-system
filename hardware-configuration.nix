@@ -19,7 +19,7 @@
   # Reduse swapping
   boot.kernel.sysctl = { "vm.swappiness" = 10; };
 
-  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" "wasm32-wasi" ];
 
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/49af3e55-9340-4b06-bcd7-9a322c7d92c4";

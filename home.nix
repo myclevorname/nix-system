@@ -13,15 +13,7 @@
     baobab
     bluetuith
     cabal-install
-    my-pkgs.packages.${system}.ce-toolchain
-    (cemu-ti.overrideAttrs {
-      dontWrapQtApps = true;
-      fixupPhase = ''
-        runHook preFixup
-        wrapQtApp $out/bin/CEmu --add-flags "--platform xcb"
-        runHook postFixup
-      '';
-    })
+#    cemu-ti
     ciscoPacketTracer8 # https://lms.netacad.com/mod/page/view.php?id=85083644
     dolphin-emu
     elinks
@@ -43,6 +35,7 @@
     nasm
     nix-output-monitor
     nvtopPackages.intel
+    obsidian
     (retroarch.overrideAttrs (oldAttrs: {
       cores = [ dolphin mgba ];
     }))
