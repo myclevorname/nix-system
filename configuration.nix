@@ -14,14 +14,14 @@
   # Custom module config
   # boot.kernel.x32.enable = true; # I don't rely on it
   boot.kernel.mg-lru.enable = true;
-  programs.sway.clevorConfig.enable = true;
+  users.clevor.sway.enable = true;
   users.benjamin.enable = true;
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "clevor-laptop-nixos"; # Define your hostname.
+  networking.hostName = "clevor-laptop-nixos";
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -30,7 +30,6 @@
   # Support the Joycon controllers
   # services.joycond.enable = true;
 
-  # Set your time zone.
   time.timeZone = "America/New_York";
 
   i18n.defaultLocale = "en_US.UTF-8";
@@ -102,9 +101,9 @@
     memoryPercent = 150;
   };
 
-  virtualisation.libvirtd.enable = true;
-  programs.virt-manager.enable = true;
+  # virtualisation.libvirtd.enable = true;
+  # programs.virt-manager.enable = true;
 
   # Haven't used it in a while
-  programs.steam.enable = true;
+  # programs.steam.enable = true;
 }

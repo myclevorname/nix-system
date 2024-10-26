@@ -6,10 +6,10 @@
 
 {
   options = {
-    programs.sway.clevorConfig.enable = lib.mkEnableOption "the Sway configuration clevor likes.";
+    users.clevor.sway.enable = lib.mkEnableOption "the Sway configuration clevor likes.";
   };
 
-  config = lib.mkIf config.programs.sway.clevorConfig.enable {
+  config = lib.mkIf config.users.clevor.sway.enable {
     users.users.clevor = {
       extraGroups = [ "video" "audio" ];
     };
