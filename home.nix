@@ -1,4 +1,4 @@
-{ pkgs, my-pkgs, tilp-pkgs, ... }:
+{ pkgs, tilp-pkgs, ... }:
 {
   programs.bash = {
     enable = true;
@@ -12,7 +12,7 @@
   home.packages = with pkgs; [
     baobab
     bluetuith
-#    cemu-ti
+    cemu-ti
     ciscoPacketTracer8 # https://lms.netacad.com/mod/page/view.php?id=85083644
 #    dolphin-emu
     elinks
@@ -34,6 +34,7 @@
 #      cores = [ dolphin mgba ];
 #    }))
     prismlauncher
+    ripgrep
     tilp-pkgs.legacyPackages.${system}.tilp2
     vim
     wf-recorder

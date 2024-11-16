@@ -7,10 +7,6 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    my-pkgs = {
-      url = "github:myclevorname/flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     tilp-pkgs.url = "github:NixOS/nixpkgs/21.11";
     wallpapers = {
       url = "github:ParrotSec/parrot-wallpapers";
@@ -19,7 +15,7 @@
   };
   # I will not use flake-utils as I want to reduce the amount of dependencies I have.
 
-  outputs = { self, nixpkgs, my-pkgs, wallpapers, tilp-pkgs, home-manager }@attrs:
+  outputs = { self, nixpkgs, wallpapers, tilp-pkgs, home-manager }@attrs:
     let
       nixpkgs' = import nixpkgs { system = "x86_64-linux"; };
       commonConfig = [
