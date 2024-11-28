@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, self, ... }:
+{ config, pkgs, nixpkgs, self, ... }:
 
 {
   imports = [
@@ -61,9 +61,6 @@
     extraGroups = [ "networkmanager" "wheel" "libvirtd" "users" ];
   };
 
-  nixpkgs.config.allowUnfree = true;
-
-
   environment.systemPackages = with pkgs; [
     vim
   ];
@@ -96,6 +93,8 @@
 
   # Risky! Changes `nix store optimise` to `nix store optimize` because I am American.
   nix.package = self.packages.x86_64-linux.nix;
+  nix.registry.nixpkgs.flake = nixpkgs;
+  nixpkgs.config.allowUnfree = true;
 
   zramSwap = {
     enable = true;

@@ -7,7 +7,7 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    tilp-pkgs.url = "github:NixOS/nixpkgs/21.11";
+    tilp-pkgs.url = "github:myclevorname/nixpkgs/tilp2";
     wallpapers = {
       url = "github:ParrotSec/parrot-wallpapers";
       flake = false;
@@ -15,7 +15,7 @@
   };
   # I will not use flake-utils as I want to reduce the amount of dependencies I have.
 
-  outputs = { self, nixpkgs, wallpapers, tilp-pkgs, home-manager }@attrs:
+  outputs = { self, nixpkgs, wallpapers, home-manager, tilp-pkgs, ... }@attrs:
     let
       nixpkgs' = import nixpkgs { system = "x86_64-linux"; };
       commonConfig = [
@@ -49,7 +49,7 @@
       modules = commonConfig;
     };
     packages."x86_64-linux" = {
-      nix = nixpkgs'.pkgs.nixVersions.nix_2_24.overrideAttrs (final: old: {
+      nix = nixpkgs'.nixVersions.nix_2_24.overrideAttrs (final: old: {
         patchPhase = (if old ? patchPhase then old.patchPhase else "") + ''
           substituteInPlace src/nix/optimise-store.cc --replace-fail '"optimise"' '"optimize"'
           substituteInPlace src/nix/optimise-store.md --replace-fail 'store optimise' 'store optimize' --replace-fail \
@@ -58,6 +58,7 @@
           )""'
         '';
       });
+      tilp = nixpkgs'.callPackage (tilp-pkgs + "/pkgs/by-name/ti/tilp/package.nix") { };
     };
   };
 }
