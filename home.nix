@@ -14,7 +14,6 @@
     bluetuith
 #    cemu-ti
     ciscoPacketTracer8 # https://lms.netacad.com/mod/page/view.php?id=85083644
-    comma
 #    dolphin-emu
     elinks
     firefox
