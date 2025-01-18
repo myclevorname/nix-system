@@ -12,7 +12,7 @@
   ];
 
   # Custom module config
-  boot.kernel.x32.enable = true; # I don't rely on it
+  # boot.kernel.x32.enable = true; # I don't rely on it
   boot.kernel.mg-lru.enable = true;
   users.clevor.sway.enable = true;
   users.benjamin.enable = true;

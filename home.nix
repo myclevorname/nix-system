@@ -12,6 +12,7 @@
   home.packages = with pkgs; [
     baobab
     bluetuith
+    cachix
 #    cemu-ti
     ciscoPacketTracer8 # https://lms.netacad.com/mod/page/view.php?id=85083644
 #    dolphin-emu
