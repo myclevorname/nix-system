@@ -59,6 +59,9 @@
         '';
       });
       tilp = nixpkgs'.callPackage (tilp-pkgs + "/pkgs/by-name/ti/tilp/package.nix") { };
+      cemu-ti = nixpkgs'.cemu-ti.overrideAttrs {
+        meta.broken = false;
+      };
     };
   };
 }

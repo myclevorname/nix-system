@@ -101,8 +101,8 @@
     memoryPercent = 150;
   };
 
-  # virtualisation.libvirtd.enable = true;
-  # programs.virt-manager.enable = true;
+  virtualisation.libvirtd.enable = true;
+  programs.virt-manager.enable = true;
 
   # Haven't used it in a while
   # programs.steam.enable = true;
