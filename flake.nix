@@ -19,35 +19,25 @@
     let
       nixpkgs' = import nixpkgs { system = "x86_64-linux"; };
       commonConfig = [
-        ./configuration.nix
-        self.nixosModules.mg-lru
+        ./common-configuration.nix
+        ./choose.nix
         home-manager.nixosModules.home-manager
-        {
-          home-manager = {
-            backupFileExtension = "hm.bak";
-            extraSpecialArgs = attrs;
-            useGlobalPkgs = true;
-            useUserPackages = true;
-            users.clevor = import ./home.nix;
-          };
-        }
-      ];
+      ] ++
+        (import ./modules).imported;
     in {
-    nixosConfigurations."clevor-laptop-nixos" = nixpkgs.lib.nixosSystem rec {
-      system = "x86_64-linux";
-      specialArgs = attrs;
-      modules = [
-        ./hardware-configuration.nix
-        ./network-configuration.nix
-      ] ++ commonConfig;
+    nixosConfigurations = {
+      "clevor-laptop-nixos" = nixpkgs.lib.nixosSystem rec {
+        system = "x86_64-linux";
+        specialArgs = attrs // { configName = "clevor-laptop-nixos"; inputs = attrs; };
+        modules = commonConfig;
+      };
+      "clevor-laptop-nixos-generic" = nixpkgs.lib.nixosSystem rec {
+        system = "x86_64-linux";
+        specialArgs = attrs // { configName = "clevor-laptop-nixos-generic"; };
+        modules = commonConfig;
+      };
     };
-    nixosModules.mg-lru = import ./modules/mg-lru.nix;
-
-    nixosConfigurations."clevor-laptop-nixos-generic" = nixpkgs.lib.nixosSystem rec {
-      system = "x86_64-linux";
-      specialArgs = attrs;
-      modules = commonConfig;
-    };
+    nixosModules = import ./modules;
     packages."x86_64-linux" = {
       nix = nixpkgs'.nixVersions.nix_2_24.overrideAttrs (final: old: {
         patchPhase = (if old ? patchPhase then old.patchPhase else "") + ''

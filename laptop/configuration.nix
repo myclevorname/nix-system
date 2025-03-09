@@ -2,12 +2,11 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, nixpkgs, self, ... }:
+{ config, pkgs, nixpkgs, self, configName, ... }:
 
 {
   imports = [
     ./sway.nix
-    ./x32.nix
     ./benjamin.nix
   ];
 
@@ -21,7 +20,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "clevor-laptop-nixos";
+  networking.hostName = configName;
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -30,43 +29,6 @@
   # Support the Joycon controllers
   # services.joycond.enable = true;
 
-  time.timeZone = "America/New_York";
-
-  i18n.defaultLocale = "en_US.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_US.UTF-8";
-    LC_IDENTIFICATION = "en_US.UTF-8";
-    LC_MEASUREMENT = "en_US.UTF-8";
-    LC_MONETARY = "en_US.UTF-8";
-    LC_NAME = "en_US.UTF-8";
-    LC_NUMERIC = "en_US.UTF-8";
-    LC_PAPER = "en_US.UTF-8";
-    LC_TELEPHONE = "en_US.UTF-8";
-    LC_TIME = "en_US.UTF-8";
-  };
-
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
-  };
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.groups.clevor.gid = 1000;
-
-  users.users.clevor = {
-    isNormalUser = true;
-    description = "Sam Connelly";
-    group = "clevor";
-    extraGroups = [ "networkmanager" "wheel" "libvirtd" "users" ];
-  };
-
-  environment.systemPackages = with pkgs; [
-    vim
-  ];
-
-  programs.tmux.enable = true;
-  services.openssh.enable = true;
   programs.gnupg.agent.enable = true;
 
   services.printing.enable = true;
@@ -88,8 +50,6 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.11"; # Did you read the comment?
-
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Risky! Changes `nix store optimise` to `nix store optimize` because I am American.
   nix.package = self.packages.x86_64-linux.nix;

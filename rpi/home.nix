@@ -10,42 +10,25 @@
   };
 
   home.packages = with pkgs; [
-    baobab
-    bluetuith
-    cachix
-    self.packages.${system}.cemu-ti
-    ciscoPacketTracer8 # https://lms.netacad.com/mod/page/view.php?id=85083644
-#    dolphin-emu
     elinks
     file
-    firefox
     (writeShellScriptBin "flush-swap" ''
       swapoff -a; systemctl restart swap.target
     '')
     gh
     git
     htop
-    jmtpfs
     man-pages
     man-pages-posix
     moreutils
     nix-output-monitor
-    nvtopPackages.intel
-    obsidian
-#    (retroarch.overrideAttrs (oldAttrs: {
-#      cores = [ dolphin mgba ];
-#    }))
     prismlauncher
     ripgrep
-    self.packages.${system}.tilp
     unzip
     vim
-    wf-recorder
     wget
     zip
   ];
 
-  # Just testing
-  services.ollama.enable = true;
   home.stateVersion = "24.11";
 }
