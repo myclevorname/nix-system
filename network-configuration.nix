@@ -14,6 +14,7 @@
 #  };
 
   networking.hosts = {
-    "172.16.0.190" = [ "clevor-rpi.local" "clevor-rpi" "rpi" "rpi.local" ];
+    "172.16.0.131" = [ "clevor-laptop-nixos" "laptop.local" ];
+    "172.16.0.121" = [ "clevor-rpi-nixos" "rpi.local" ];
   };
 }
