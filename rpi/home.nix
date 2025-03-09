@@ -22,7 +22,6 @@
     man-pages-posix
     moreutils
     nix-output-monitor
-    prismlauncher
     ripgrep
     unzip
     vim

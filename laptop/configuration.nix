@@ -20,8 +20,6 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = configName;
-
   # Enable networking
   networking.networkmanager.enable = true;
   hardware.bluetooth.enable = true;
@@ -53,8 +51,6 @@
 
   # Risky! Changes `nix store optimise` to `nix store optimize` because I am American.
   nix.package = self.packages.x86_64-linux.nix;
-  nix.registry.nixpkgs.flake = nixpkgs;
-  nixpkgs.config.allowUnfree = true;
 
   zramSwap = {
     enable = true;

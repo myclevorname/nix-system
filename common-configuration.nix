@@ -1,5 +1,7 @@
-{ pkgs, ... }:
+{ nixpkgs, pkgs, configName, ... }:
 {
+  networking.hostName = configName;
+
   time.timeZone = "America/New_York";
 
   i18n.defaultLocale = "en_US.UTF-8";
@@ -37,6 +39,9 @@
 
   services.openssh.enable = true;
   programs.tmux.enable = true;
+
+  nix.registry.nixpkgs.flake = nixpkgs;
+  nixpkgs.config.allowUnfree = true;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 }

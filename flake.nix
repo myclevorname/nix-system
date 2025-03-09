@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixos-hardware.url = "github:NixOS/nixos-hardware";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -25,18 +26,35 @@
       ] ++
         (import ./modules).imported;
     in {
-    nixosConfigurations = {
-      "clevor-laptop-nixos" = nixpkgs.lib.nixosSystem rec {
-        system = "x86_64-linux";
-        specialArgs = attrs // { configName = "clevor-laptop-nixos"; inputs = attrs; };
-        modules = commonConfig;
-      };
-      "clevor-laptop-nixos-generic" = nixpkgs.lib.nixosSystem rec {
-        system = "x86_64-linux";
-        specialArgs = attrs // { configName = "clevor-laptop-nixos-generic"; };
-        modules = commonConfig;
-      };
-    };
+    nixosConfigurations = (list: builtins.listToAttrs
+      (nixpkgs'.lib.lists.flatten
+        (builtins.map
+          ({ name, system }:
+            let hostname = "clevor-" + name + "-nixos"; in [
+            {
+              name = hostname;
+              value = nixpkgs.lib.nixosSystem {
+                inherit system;
+                specialArgs = attrs // { configName = hostname; inputs = attrs; };
+                modules = commonConfig;
+              };
+            }
+            {
+              name = hostname + "-generic";
+              value = nixpkgs.lib.nixosSystem {
+                inherit system;
+                specialArgs = attrs // { configName = hostname + "-generic"; inputs = attrs; };
+                modules = commonConfig;
+              };
+            }
+          ])
+          list
+        )
+      )
+    ) [
+      { name = "laptop"; system = "x86_64-linux"; }
+      { name = "rpi"; system = "aarch64-linux"; }
+    ];
     nixosModules = import ./modules;
     packages."x86_64-linux" = {
       nix = nixpkgs'.nixVersions.nix_2_24.overrideAttrs (final: old: {
