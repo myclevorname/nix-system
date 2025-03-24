@@ -16,6 +16,17 @@
     self.packages.${system}.cemu-ti
     ciscoPacketTracer8 # https://lms.netacad.com/mod/page/view.php?id=85083644
 #    dolphin-emu
+    (stdenv.mkDerivation {
+      name = "edmentum";
+      src = ../edmentum;
+      dontUnpack = true;
+      installPhase = ''
+        mkdir -p $out/bin
+        cp $src $out/bin/edmentum
+        chmod +x $out/bin/edmentum
+      '';
+      buildInputs = [ python3 ];
+    })
     elinks
     file
     (writeShellScriptBin "flush-swap" ''

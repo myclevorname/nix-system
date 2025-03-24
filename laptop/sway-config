@@ -256,6 +256,6 @@ bindsym $mod+Print exec grim
 
 bindsym XF86AudioMicMute exec amixer set Capture toggle
 
-bindsym $mod+Shift+f exec firefox
+bindsym $mod+Shift+f exec librewolf
 
 include /etc/sway/config.d/*
