@@ -1,6 +1,7 @@
 #!/usr/bin/env  python3
 
 from datetime import date, timedelta
+from math import ceil
 
 start = date(2025, 3, 24)
 today = date.today()
@@ -13,15 +14,17 @@ current_duration = (today-start+one_day).days
 
 course_date_progress = current_duration / total_duration
 
-total = 110
+total = 124
 current = int(input("How many assignments have you completed so far? "))
 
 current_pace = current / current_duration
-expected_pace = course_date_progress * total
+expected_pace = course_date_progress * total / current_duration
+
+wanted_days_ahead = 5
 
 print("Current pace:", current_pace, "assignments per day.")
-print("AKA", current*(total_duration/total), "days")
+print("AKA", current*(total_duration/total)-current_duration, "days ahead of schedule")
 print("Expected pace:", expected_pace, "assignments per day.")
 print()
-print("To do today:", max(expected_pace-current_pace, 0), "assignments.")
+print("To do today:", ceil(max((expected_pace - current_pace) * current_duration + wanted_days_ahead * expected_pace, 0)), f"assignments (to get {wanted_days_ahead} days ahead).")
 print("Pace required to meet goal:", (total - current) / (total_duration - current_duration), "assignments per day.")

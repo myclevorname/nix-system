@@ -49,9 +49,6 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.11"; # Did you read the comment?
 
-  # Risky! Changes `nix store optimise` to `nix store optimize` because I am American.
-  nix.package = self.packages.x86_64-linux.nix;
-
   zramSwap = {
     enable = true;
     memoryPercent = 150;
@@ -59,6 +56,7 @@
 
   virtualisation.libvirtd.enable = true;
   programs.virt-manager.enable = true;
+  services.open-webui.enable = true;
 
   # Haven't used it in a while
   # programs.steam.enable = true;

@@ -6,8 +6,11 @@
     enableVteIntegration = true;
     initExtra = ''
       export PS1="\\[\\033[1;32m\\][\\[\\e]0;\\u@\\h: \\w\\a\\]\\u@\\h:\\w]\$\\[\\033[0m\\] ";
+      export PATH=$PATH:/home/clevor/zig/bin
     '';
   };
+
+  programs.vesktop.enable = true;
 
   home.packages = with pkgs; [
     baobab

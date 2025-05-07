@@ -57,15 +57,6 @@
     ];
     nixosModules = import ./modules;
     packages."x86_64-linux" = {
-      nix = nixpkgs'.nixVersions.nix_2_24.overrideAttrs (final: old: {
-        patchPhase = (if old ? patchPhase then old.patchPhase else "") + ''
-          substituteInPlace src/nix/optimise-store.cc --replace-fail '"optimise"' '"optimize"'
-          substituteInPlace src/nix/optimise-store.md --replace-fail 'store optimise' 'store optimize' --replace-fail \
-            ')""' 'Note that the original command is `nix store optimise`, but clevor made a patch that changes it to `nix store optimize`.
-          
-          )""'
-        '';
-      });
       tilp = nixpkgs'.callPackage (tilp-pkgs + "/pkgs/by-name/ti/tilp/package.nix") { };
       cemu-ti = nixpkgs'.cemu-ti.overrideAttrs {
         meta.broken = false;
