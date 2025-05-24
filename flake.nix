@@ -13,12 +13,17 @@
       url = "github:ParrotSec/parrot-wallpapers";
       flake = false;
     };
+    wl-gammarelay = {
+      url = "github:jeremija/wl-gammarelay";
+      flake = false;
+    };
   };
   # I will not use flake-utils as I want to reduce the amount of dependencies I have.
 
   outputs = { self, nixpkgs, wallpapers, home-manager, tilp-pkgs, ... }@attrs:
     let
-      nixpkgs' = import nixpkgs { system = "x86_64-linux"; };
+      system = "x86_64-linux";
+      nixpkgs' = nixpkgs.legacyPackages.${system};
       commonConfig = [
         ./common-configuration.nix
         ./choose.nix
@@ -53,6 +58,7 @@
       )
     ) [
       { name = "laptop"; system = "x86_64-linux"; }
+      { name = "hptop"; system = "x86_64-linux"; }
       { name = "rpi"; system = "aarch64-linux"; }
     ];
     nixosModules = import ./modules;
@@ -60,6 +66,16 @@
       tilp = nixpkgs'.callPackage (tilp-pkgs + "/pkgs/by-name/ti/tilp/package.nix") { };
       cemu-ti = nixpkgs'.cemu-ti.overrideAttrs {
         meta.broken = false;
+      };
+      wl-gammarelay = nixpkgs'.buildGoModule {
+        name = "wl-gammarelay";
+        src = attrs.wl-gammarelay;
+        vendorHash = "sha256-yJ6AuL0cmU+rMQNv3lmHQQSVipUZAUFxsLvthIsoS+s=";
+        preBuild = ''
+          make -C protocol
+        '';
+        nativeBuildInputs = with nixpkgs'; [ wayland-scanner ];
+        buildInputs = with nixpkgs'; [ wayland ];
       };
     };
   };

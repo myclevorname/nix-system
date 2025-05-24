@@ -156,9 +156,9 @@ input "1102:4639:DELL0817:00_044E:121F_Touchpad" {
     bindsym $mod+Shift+o splitv
 
     # Switch the current container between different layout styles
-    bindsym $mod+s layout stacking
-    bindsym $mod+w layout tabbed
-    bindsym $mod+e layout toggle split
+#    bindsym $mod+s layout stacking
+#    bindsym $mod+w layout tabbed
+#    bindsym $mod+e layout toggle split
 
     # Make the current focus fullscreen
     bindsym $mod+f fullscreen
@@ -170,7 +170,7 @@ input "1102:4639:DELL0817:00_044E:121F_Touchpad" {
     bindsym $mod+space focus mode_toggle
 
     # Move focus to the parent container
-    bindsym $mod+a focus parent
+#    bindsym $mod+a focus parent
 #
 # Scratchpad:
 #
@@ -243,6 +243,9 @@ bindsym XF86AudioMute exec 'pactl set-sink-mute @DEFAULT_SINK@ toggle'
 bindsym XF86MonBrightnessDown exec light -U 5
 bindsym XF86MonBrightnessUp exec light -A 5
 
+bindsym Shift+XF86MonBrightnessDown exec light -U 1
+bindsym Shift+XF86MonBrightnessUp exec light -A 1
+
 #
 # Steam
 #
@@ -256,6 +259,15 @@ bindsym $mod+Print exec grim
 
 bindsym XF86AudioMicMute exec amixer set Capture toggle
 
-bindsym $mod+Shift+f exec librewolf
+bindsym $mod+e exec librewolf
+
+
+# aah too big
+output LVDS-1 scale 0.8
+
+# aah too bright for hptop
+exec wl-gammarelay
+bindsym $mod+XF86MonBrightnessDown exec busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateBrightness d -0.2
+bindsym $mod+XF86MonBrightnessUp exec busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateBrightness d +0.2
 
 include /etc/sway/config.d/*

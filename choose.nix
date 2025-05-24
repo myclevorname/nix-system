@@ -1,6 +1,6 @@
 { config, lib, configName, inputs, ... }:
 let
-  configs = [ "laptop" "rpi" ];
+  configs = [ "laptop" "rpi" "hptop" ];
   inherit (lib.strings) hasInfix hasSuffix;
   inherit (lib.lists) findFirst;
   inherit (lib.trivial) throwIf;

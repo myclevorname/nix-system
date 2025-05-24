@@ -7,11 +7,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1746585355,
-        "narHash": "sha256-p+3fK8HEYC+0q4gPKSE4OSRxqt5H/tWZkB9wF7aaWOY=",
+        "lastModified": 1747875884,
+        "narHash": "sha256-tdVx4kghhdy62LKuTnwE2RytOe8o88tah/yhpyuL0D4=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "35535345be0be7dbae2e9b787c6cf790f8c893d5",
+        "rev": "f9186c64fcc6ee5f0114547acf9e814c806a640b",
         "type": "github"
       },
       "original": {
@@ -22,11 +22,11 @@
     },
     "nixos-hardware": {
       "locked": {
-        "lastModified": 1746468201,
-        "narHash": "sha256-hSOSlrvMJwGr8hX/gc0mnhUf5UIClMDUAadfXlSXzfc=",
+        "lastModified": 1747900541,
+        "narHash": "sha256-dn64Pg9xLETjblwZs9Euu/SsjW80pd6lr5qSiyLY1pg=",
         "owner": "NixOS",
         "repo": "nixos-hardware",
-        "rev": "6aabf68429c0a414221d1790945babfb6a0bd068",
+        "rev": "11f2d9ea49c3e964315215d6baa73a8d42672f06",
         "type": "github"
       },
       "original": {
@@ -37,11 +37,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1746461020,
-        "narHash": "sha256-7+pG1I9jvxNlmln4YgnlW4o+w0TZX24k688mibiFDUE=",
+        "lastModified": 1747744144,
+        "narHash": "sha256-W7lqHp0qZiENCDwUZ5EX/lNhxjMdNapFnbErcbnP11Q=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "3730d8a308f94996a9ba7c7138ede69c1b9ac4ae",
+        "rev": "2795c506fe8fb7b03c36ccb51f75b6df0ab2553f",
         "type": "github"
       },
       "original": {
@@ -57,7 +57,8 @@
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
         "tilp-pkgs": "tilp-pkgs",
-        "wallpapers": "wallpapers"
+        "wallpapers": "wallpapers",
+        "wl-gammarelay": "wl-gammarelay"
       }
     },
     "tilp-pkgs": {
@@ -89,6 +90,22 @@
       "original": {
         "owner": "ParrotSec",
         "repo": "parrot-wallpapers",
+        "type": "github"
+      }
+    },
+    "wl-gammarelay": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1740427128,
+        "narHash": "sha256-XD9BKaNfxH02Fi7szs23HSfLsTbcUlxw30lZTTDOv+E=",
+        "owner": "jeremija",
+        "repo": "wl-gammarelay",
+        "rev": "cc38c8668d8d1af1df41fec24c4dc4aaa9afd2bf",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jeremija",
+        "repo": "wl-gammarelay",
         "type": "github"
       }
     }

@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, lib, wallpapers, ... }:
+{ config, pkgs, lib, wallpapers, self, ... }:
 
 {
   options = {
@@ -19,6 +19,7 @@
       grim
       slurp
       wofi
+      self.packages.${system}.wl-gammarelay
     ];
 
     services.gnome.gnome-keyring.enable = true;
@@ -43,9 +44,12 @@
         '';
       }; in
     {
-      home.file = {
-        ".sway/config".source = ./sway-config;
-        ".sway/background.png".source = background;
+      home = {
+        file = {
+          ".sway/config".source = ./sway-config;
+          ".sway/background.png".source = background;
+        };
+        packages = with pkgs; [ librewolf ];
       };
       programs.foot = {
         enable = true;

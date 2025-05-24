@@ -14,7 +14,7 @@ current_duration = (today-start+one_day).days
 
 course_date_progress = current_duration / total_duration
 
-total = 124
+total = 122 - 3 # 3 phantom assignments for some reason
 current = int(input("How many assignments have you completed so far? "))
 
 current_pace = current / current_duration
@@ -26,5 +26,5 @@ print("Current pace:", current_pace, "assignments per day.")
 print("AKA", current*(total_duration/total)-current_duration, "days ahead of schedule")
 print("Expected pace:", expected_pace, "assignments per day.")
 print()
-print("To do today:", ceil(max((expected_pace - current_pace) * current_duration + wanted_days_ahead * expected_pace, 0)), f"assignments (to get {wanted_days_ahead} days ahead).")
+print("To do today:", ceil(max((expected_pace - current_pace) * current_duration + min(wanted_days_ahead, total_duration-current_duration) * expected_pace, 0)), f"assignments (to get {wanted_days_ahead} days ahead).")
 print("Pace required to meet goal:", (total - current) / (total_duration - current_duration), "assignments per day.")
