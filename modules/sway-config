@@ -265,9 +265,4 @@ bindsym $mod+e exec librewolf
 # aah too big
 output LVDS-1 scale 0.8
 
-# aah too bright for hptop
-exec wl-gammarelay
-bindsym $mod+XF86MonBrightnessDown exec busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateBrightness d -0.2
-bindsym $mod+XF86MonBrightnessUp exec busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateBrightness d +0.2
-
 include /etc/sway/config.d/*

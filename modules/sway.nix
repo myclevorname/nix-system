@@ -6,7 +6,10 @@
 
 {
   options = {
-    users.clevor.sway.enable = lib.mkEnableOption "the Sway configuration clevor likes.";
+    users.clevor.sway = {
+      enable = lib.mkEnableOption "the Sway configuration clevor likes.";
+      extraDimming = lib.mkEnableOption "dimming below the hardware minimum";
+    };
   };
 
   config = lib.mkIf config.users.clevor.sway.enable {
@@ -46,7 +49,14 @@
     {
       home = {
         file = {
-          ".sway/config".source = ./sway-config;
+          ".sway/config".source = if !config.users.clevor.sway.extraDimming then ./sway-config else pkgs.stdenvNoCC.mkDerivation {
+            name = "config";
+            src = ./sway-config;
+            dontUnpack = true;
+            installPhase = ''
+              cat $src ${./extra-dimming} > $out
+            '';
+          };
           ".sway/background.png".source = background;
         };
         packages = with pkgs; [ librewolf ];

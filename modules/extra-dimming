@@ -1,0 +1,4 @@
+# aah too bright for hptop
+exec wl-gammarelay
+bindsym $mod+bracketleft exec busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateBrightness d -0.2
+bindsym $mod+bracketright exec busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateBrightness d +0.2

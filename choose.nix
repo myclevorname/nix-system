@@ -15,7 +15,7 @@ let
 in {
   imports = 
     (if !isGeneric configName
-      then [ (path + "/hardware-configuration.nix") ./network-configuration.nix ]
+      then [ (path + "/hardware-configuration.nix") ./network-configuration.nix ./secrets.nix ]
       else []
     ) ++ [ (path + "/configuration.nix") ];
   home-manager = {
