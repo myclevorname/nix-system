@@ -14,7 +14,7 @@ current_duration = (today-start+one_day).days
 
 course_date_progress = current_duration / total_duration
 
-total = 122 - 3 # 3 phantom assignments for some reason
+total = 122 - 4 # 4 phantom assignments for some reason
 current = int(input("How many assignments have you completed so far? "))
 
 current_pace = current / current_duration

@@ -240,8 +240,10 @@ bindsym XF86AudioMute exec 'pactl set-sink-mute @DEFAULT_SINK@ toggle'
 #
 # Screen Hotkeys
 #
-bindsym XF86MonBrightnessDown exec light -U 5
-bindsym XF86MonBrightnessUp exec light -A 5
+bindsym XF86MonBrightnessDown exec if [ -f /sys/class/backlight/acpi_video0/ ];\
+  then light -U 10; else light -U 5; fi
+bindsym XF86MonBrightnessUp exec if [ -f /sys/class/backlight/acpi_video0/ ];\
+  then light -A 10; else light -U A; fi
 
 bindsym Shift+XF86MonBrightnessDown exec light -U 1
 bindsym Shift+XF86MonBrightnessUp exec light -A 1
@@ -262,7 +264,10 @@ bindsym XF86AudioMicMute exec amixer set Capture toggle
 bindsym $mod+e exec librewolf
 
 
-# aah too big
-output LVDS-1 scale 0.8
+output LVDS-1 {
+	# aah too big
+	scale 0.8
+	subpixel rgb
+}
 
 include /etc/sway/config.d/*
