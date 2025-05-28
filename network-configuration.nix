@@ -28,7 +28,7 @@
         else if configName == "clevor-hptop-nixos"  then hptop
         else if configName == "clevor-rpi-nixos"    then rpi
         else throw "Unknown machine speed";
-    in [
+    in builtins.filter (c: c.speedFactor != 1) [
       {
         hostName = "clevor-hptop-nixos";
         system = "x86_64-linux";
