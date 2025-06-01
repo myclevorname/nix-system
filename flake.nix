@@ -59,6 +59,7 @@
     ) [
       { name = "laptop"; system = "x86_64-linux"; }
       { name = "hptop"; system = "x86_64-linux"; }
+      { name = "hp2top"; system = "x86_64-linux"; }
       { name = "rpi"; system = "aarch64-linux"; }
     ];
     nixosModules = import ./modules;
