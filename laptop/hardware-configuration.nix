@@ -43,7 +43,7 @@
 
   boot.tmp = {
     useTmpfs = true;
-    tmpfsSize = "300%";
+    tmpfsSize = "600%"; # Linux kernel smh
     cleanOnBoot = true;
   };
 

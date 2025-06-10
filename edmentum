@@ -3,9 +3,9 @@
 from datetime import date, timedelta
 from math import ceil
 
-start = date(2025, 3, 24)
+start = date(2025, 6, 9)
 today = date.today()
-end = date(2025, 5, 29)
+end = date(2025, 7, 3)
 
 one_day = timedelta(days=1)
 
@@ -14,7 +14,7 @@ current_duration = (today-start+one_day).days
 
 course_date_progress = current_duration / total_duration
 
-total = 122 - 4 # 4 phantom assignments for some reason
+total = 17
 current = int(input("How many assignments have you completed so far? "))
 
 current_pace = current / current_duration
