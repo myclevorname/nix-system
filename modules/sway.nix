@@ -2,7 +2,14 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, lib, wallpapers, self, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  wallpapers,
+  self,
+  ...
+}:
 
 {
   options = {
@@ -14,7 +21,10 @@
 
   config = lib.mkIf config.users.clevor.sway.enable {
     users.users.clevor = {
-      extraGroups = [ "video" "audio" ];
+      extraGroups = [
+        "video"
+        "audio"
+      ];
     };
 
     environment.systemPackages = with pkgs; [
@@ -36,36 +46,42 @@
       support32Bit = true;
     };
 
-    home-manager.users.clevor = let
-      background = pkgs.stdenv.mkDerivation {
-        name = "macaw.png";
-        src = builtins.toString wallpapers + "/backgrounds/macaw.jpg";
-        dontUnpack = true;
-        nativeBuildInputs = with pkgs; [ ffmpeg ];
-        installPhase = ''
-          ffmpeg -i $src $out
-        '';
-      }; in
-    {
-      home = {
-        file = {
-          ".sway/config".source = if !config.users.clevor.sway.extraDimming then ./sway-config else pkgs.stdenvNoCC.mkDerivation {
-            name = "config";
-            src = ./sway-config;
-            dontUnpack = true;
-            installPhase = ''
-              cat $src ${./extra-dimming} > $out
-            '';
-          };
-          ".sway/background.png".source = background;
+    home-manager.users.clevor =
+      let
+        background = pkgs.stdenv.mkDerivation {
+          name = "macaw.png";
+          src = builtins.toString wallpapers + "/backgrounds/macaw.jpg";
+          dontUnpack = true;
+          nativeBuildInputs = with pkgs; [ ffmpeg ];
+          installPhase = ''
+            ffmpeg -i $src $out
+          '';
         };
-        packages = with pkgs; [ librewolf ];
+      in
+      {
+        home = {
+          file = {
+            ".sway/config".source =
+              if !config.users.clevor.sway.extraDimming then
+                ./sway-config
+              else
+                pkgs.stdenvNoCC.mkDerivation {
+                  name = "config";
+                  src = ./sway-config;
+                  dontUnpack = true;
+                  installPhase = ''
+                    cat $src ${./extra-dimming} > $out
+                  '';
+                };
+            ".sway/background.png".source = background;
+          };
+          packages = with pkgs; [ librewolf ];
+        };
+        programs.foot = {
+          enable = true;
+          settings.main.font = "Terminal:size=10.5";
+        };
       };
-      programs.foot = {
-        enable = true;
-        settings.main.font = "Terminal:size=10.5";
-      };
-    };
 
     programs = {
       sway = {

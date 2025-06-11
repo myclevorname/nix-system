@@ -8,12 +8,14 @@
   };
 
   config = lib.mkIf config.boot.kernel.x32.enable {
-    boot.kernelPatches = [{
-      name = "add-x32-support";
-      patch = null;
-      extraConfig = ''
-        X86_X32_ABI y
-      '';
-    }];
+    boot.kernelPatches = [
+      {
+        name = "add-x32-support";
+        patch = null;
+        extraConfig = ''
+          X86_X32_ABI y
+        '';
+      }
+    ];
   };
 }

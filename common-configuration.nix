@@ -1,4 +1,9 @@
-{ nixpkgs, pkgs, configName, ... }:
+{
+  nixpkgs,
+  pkgs,
+  configName,
+  ...
+}:
 {
   networking.hostName = configName;
 
@@ -30,7 +35,12 @@
     isNormalUser = true;
     description = "Sam Connelly";
     group = "clevor";
-    extraGroups = [ "networkmanager" "wheel" "libvirtd" "users" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "libvirtd"
+      "users"
+    ];
   };
 
   environment.systemPackages = with pkgs; [
@@ -43,5 +53,8 @@
   nix.registry.nixpkgs.flake = nixpkgs;
   nixpkgs.config.allowUnfree = true;
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 }

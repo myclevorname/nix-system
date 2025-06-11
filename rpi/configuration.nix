@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   networking.networkmanager = {
@@ -26,8 +31,6 @@
   #     /mnt/smb/clevor 171.16.0.191(rw,async)
   #   '';
   # };
-
-
 
   services.hardware.argonone.enable = true;
 

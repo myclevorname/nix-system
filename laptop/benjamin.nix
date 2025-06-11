@@ -2,7 +2,13 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, benjamin, lib, ... }:
+{
+  config,
+  pkgs,
+  benjamin,
+  lib,
+  ...
+}:
 
 {
   options = {
@@ -14,7 +20,10 @@
       users.users.bpf = {
         isNormalUser = true;
         description = "Benjamin Connelly";
-        extraGroups = [ "libvirtd" "users" ];
+        extraGroups = [
+          "libvirtd"
+          "users"
+        ];
         packages = with pkgs; [ openjdk23 ];
       };
 

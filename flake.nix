@@ -21,7 +21,15 @@
   };
   # I will not use flake-utils as I want to reduce the amount of dependencies I have.
 
-  outputs = { self, nixpkgs, wallpapers, home-manager, tilp-pkgs, ... }@attrs:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      wallpapers,
+      home-manager,
+      tilp-pkgs,
+      ...
+    }@attrs:
     let
       system = "x86_64-linux";
       nixpkgs' = nixpkgs.legacyPackages.${system};
@@ -29,56 +37,82 @@
         ./common-configuration.nix
         ./choose.nix
         home-manager.nixosModules.home-manager
-      ] ++
-        (import ./modules).imported;
-    in {
-    nixosConfigurations = (list: builtins.listToAttrs
-      (nixpkgs'.lib.lists.flatten
-        (builtins.map
-          ({ name, system }:
-            let hostname = "clevor-" + name + "-nixos"; in [
-            {
-              name = hostname;
-              value = nixpkgs.lib.nixosSystem {
-                inherit system;
-                specialArgs = attrs // { configName = hostname; inputs = attrs; };
-                modules = commonConfig;
-              };
-            }
-            {
-              name = hostname + "-generic";
-              value = nixpkgs.lib.nixosSystem {
-                inherit system;
-                specialArgs = attrs // { configName = hostname + "-generic"; inputs = attrs; };
-                modules = commonConfig;
-              };
-            }
-          ])
-          list
+      ] ++ (import ./modules).imported;
+    in
+    {
+      nixosConfigurations =
+        (
+          list:
+          builtins.listToAttrs (
+            nixpkgs'.lib.lists.flatten (
+              builtins.map (
+                { name, system }:
+                let
+                  hostname = "clevor-" + name + "-nixos";
+                in
+                [
+                  {
+                    name = hostname;
+                    value = nixpkgs.lib.nixosSystem {
+                      inherit system;
+                      specialArgs = attrs // {
+                        configName = hostname;
+                        inputs = attrs;
+                      };
+                      modules = commonConfig;
+                    };
+                  }
+                  {
+                    name = hostname + "-generic";
+                    value = nixpkgs.lib.nixosSystem {
+                      inherit system;
+                      specialArgs = attrs // {
+                        configName = hostname + "-generic";
+                        inputs = attrs;
+                      };
+                      modules = commonConfig;
+                    };
+                  }
+                ]
+              ) list
+            )
+          )
         )
-      )
-    ) [
-      { name = "laptop"; system = "x86_64-linux"; }
-      { name = "hptop"; system = "x86_64-linux"; }
-      { name = "hp2top"; system = "x86_64-linux"; }
-      { name = "rpi"; system = "aarch64-linux"; }
-    ];
-    nixosModules = import ./modules;
-    packages."x86_64-linux" = {
-      tilp = nixpkgs'.callPackage (tilp-pkgs + "/pkgs/by-name/ti/tilp/package.nix") { };
-      cemu-ti = nixpkgs'.cemu-ti.overrideAttrs {
-        meta.broken = false;
-      };
-      wl-gammarelay = nixpkgs'.buildGoModule {
-        name = "wl-gammarelay";
-        src = attrs.wl-gammarelay;
-        vendorHash = "sha256-yJ6AuL0cmU+rMQNv3lmHQQSVipUZAUFxsLvthIsoS+s=";
-        preBuild = ''
-          make -C protocol
-        '';
-        nativeBuildInputs = with nixpkgs'; [ wayland-scanner ];
-        buildInputs = with nixpkgs'; [ wayland ];
+          [
+            {
+              name = "laptop";
+              system = "x86_64-linux";
+            }
+            {
+              name = "hptop";
+              system = "x86_64-linux";
+            }
+            {
+              name = "hp2top";
+              system = "x86_64-linux";
+            }
+            {
+              name = "rpi";
+              system = "aarch64-linux";
+            }
+          ];
+      nixosModules = import ./modules;
+      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-tree;
+      packages.x86_64-linux = {
+        tilp = nixpkgs'.callPackage (tilp-pkgs + "/pkgs/by-name/ti/tilp/package.nix") { };
+        cemu-ti = nixpkgs'.cemu-ti.overrideAttrs {
+          meta.broken = false;
+        };
+        wl-gammarelay = nixpkgs'.buildGoModule {
+          name = "wl-gammarelay";
+          src = attrs.wl-gammarelay;
+          vendorHash = "sha256-yJ6AuL0cmU+rMQNv3lmHQQSVipUZAUFxsLvthIsoS+s=";
+          preBuild = ''
+            make -C protocol
+          '';
+          nativeBuildInputs = with nixpkgs'; [ wayland-scanner ];
+          buildInputs = with nixpkgs'; [ wayland ];
+        };
       };
     };
-  };
 }

@@ -27,16 +27,17 @@
     };
   };
   config = lib.mkIf config.boot.kernel.mg-lru.enable {
-    boot.kernelParams = with config.boot.kernel.mg-lru;
+    boot.kernelParams =
+      with config.boot.kernel.mg-lru;
       let
         boolToInt = x: if x then 1 else 0;
         enabled = boolToInt enable;
-        leaf = 2*(boolToInt leafPageTables);
-        nonLeaf = 4*(boolToInt nonLeafPageTables);
+        leaf = 2 * (boolToInt leafPageTables);
+        nonLeaf = 4 * (boolToInt nonLeafPageTables);
       in
-        [
-          "CONFIG_LRU_GEN=y"
-          "CONFIG_LRU_GEN_ENABLED=${builtins.toString (enabled+leaf+nonLeaf)}"
-        ];
+      [
+        "CONFIG_LRU_GEN=y"
+        "CONFIG_LRU_GEN_ENABLED=${builtins.toString (enabled + leaf + nonLeaf)}"
+      ];
   };
 }

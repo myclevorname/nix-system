@@ -1,4 +1,9 @@
-{ pkgs, self, narser, ... }:
+{
+  pkgs,
+  self,
+  narser,
+  ...
+}:
 {
   programs.bash = {
     enable = true;

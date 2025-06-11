@@ -1,4 +1,9 @@
-{ pkgs, self, narser, ... }:
+{
+  pkgs,
+  self,
+  narser,
+  ...
+}:
 {
   programs.bash = {
     enable = true;
@@ -18,7 +23,7 @@
     cachix
     self.packages.${system}.cemu-ti
     ciscoPacketTracer8 # https://lms.netacad.com/mod/page/view.php?id=85083644
-#    dolphin-emu
+    # dolphin-emu
     (stdenv.mkDerivation {
       name = "edmentum";
       src = ../edmentum;
@@ -47,9 +52,9 @@
     nix-output-monitor
     nvtopPackages.intel
     obsidian
-#    (retroarch.overrideAttrs (oldAttrs: {
-#      cores = [ dolphin mgba ];
-#    }))
+    # (retroarch.overrideAttrs (oldAttrs: {
+    #   cores = [ dolphin mgba ];
+    # }))
     prismlauncher
     ripgrep
     self.packages.${system}.tilp
