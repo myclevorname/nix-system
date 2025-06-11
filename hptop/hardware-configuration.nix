@@ -50,6 +50,8 @@
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/e78b828d-0262-41c2-89ad-f706bbae5ed7";
     fsType = "ext4";
+    # This is a slow HDD...
+    options = [ "noatime" ];
   };
 
   swapDevices = [
