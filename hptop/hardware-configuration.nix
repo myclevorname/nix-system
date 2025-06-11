@@ -14,7 +14,12 @@
   boot.extraModulePackages = [ config.boot.kernelPackages.broadcom_sta ];
 
   # fix failing to wake after suspend (by disabling it)
-  services.logind.lidSwitch = "ignore";
+  systemd.sleep.extraConfig = ''
+    AllowSuspend=no
+    AllowHibernation=no
+    AllowHybridSleep=no
+    AllowSuspendThenHibernate=no
+  '';
 
   # Should help performance when swapping
   boot.kernel.mg-lru.enable = true;
