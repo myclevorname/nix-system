@@ -1,4 +1,4 @@
-{ pkgs, self, ... }:
+{ pkgs, self, narser, ... }:
 {
   programs.bash = {
     enable = true;
@@ -43,6 +43,7 @@
     man-pages
     man-pages-posix
     moreutils
+    narser.packages.${system}.default
     nix-output-monitor
     nvtopPackages.intel
     obsidian

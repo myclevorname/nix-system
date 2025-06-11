@@ -17,6 +17,7 @@
       url = "github:jeremija/wl-gammarelay";
       flake = false;
     };
+    narser.url = "github:myclevorname/narser";
   };
   # I will not use flake-utils as I want to reduce the amount of dependencies I have.
 
