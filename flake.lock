@@ -44,11 +44,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1749495859,
-        "narHash": "sha256-MzHc/v7DLOLK5MizkX2mGPN4YKporZd6ofiVbYj52Es=",
+        "lastModified": 1749605144,
+        "narHash": "sha256-jd+0zizZHqWJqKayWQeEABXXwYf4hXq47rTxwoAcF5A=",
         "owner": "myclevorname",
         "repo": "narser",
-        "rev": "1e4a26dede6ec0595dbfdedea2d1853b7503eeec",
+        "rev": "b0aad9ea5320e088f655fae2b271f736ec8ea886",
         "type": "github"
       },
       "original": {
