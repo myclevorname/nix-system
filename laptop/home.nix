@@ -22,7 +22,6 @@
     bluetuith
     cachix
     self.packages.${system}.cemu-ti
-    ciscoPacketTracer8 # https://lms.netacad.com/mod/page/view.php?id=85083644
     # dolphin-emu
     (stdenv.mkDerivation {
       name = "edmentum";
