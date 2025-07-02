@@ -17,10 +17,10 @@
   ];
 
   # Custom module config
-  boot.kernel.x32.enable = true; # I don't rely on it
+  # boot.kernel.x32.enable = true; # I don't rely on it
   boot.kernel.mg-lru.enable = true;
   users.clevor.sway.enable = true;
-  users.benjamin.enable = true;
+  # users.benjamin.enable = true;
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -33,13 +33,13 @@
   # Support the Joycon controllers
   # services.joycond.enable = true;
 
-  programs.gnupg.agent.enable = true;
+  # programs.gnupg.agent.enable = true;
 
-  services.printing.enable = true;
-  services.avahi = {
-    enable = true;
-    nssmdns4 = true;
-  };
+  # services.printing.enable = true;
+  # services.avahi = {
+  #   enable = true;
+  #   nssmdns4 = true;
+  # };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
@@ -60,10 +60,15 @@
     memoryPercent = 150;
   };
 
-  virtualisation.libvirtd.enable = true;
-  programs.virt-manager.enable = true;
-  services.open-webui.enable = true;
+  # virtualisation.libvirtd.enable = true;
+  # programs.virt-manager.enable = true;
+  # services.open-webui.enable = true;
 
   # Haven't used it in a while
   # programs.steam.enable = true;
+
+  boot.binfmt.emulatedSystems = [
+    "aarch64-linux"
+    "wasm32-wasi"
+  ];
 }

@@ -37,14 +37,16 @@
 
     services.gnome.gnome-keyring.enable = true;
 
-    # Nix suddenly started complaining ever since I updated nixpkgs.
-    services.pipewire.enable = lib.mkForce false;
+    xdg.portal.wlr.enable = true;
+    security.rtkit.enable = true;
+    services.pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+    };
 
     hardware.graphics.enable = true;
-    services.pulseaudio = {
-      enable = true;
-      support32Bit = true;
-    };
 
     home-manager.users.clevor =
       let

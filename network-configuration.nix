@@ -30,5 +30,10 @@
       "hptop.local"
       "hptop"
     ];
+    "172.16.0.167" = [
+      "clevor-phone-pmos"
+      "phone.local"
+      "phone"
+    ];
   };
 }

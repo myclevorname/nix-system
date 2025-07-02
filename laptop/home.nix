@@ -15,7 +15,7 @@
     '';
   };
 
-  programs.vesktop.enable = true;
+  # programs.vesktop.enable = true;
 
   home.packages = with pkgs; [
     baobab
@@ -23,18 +23,18 @@
     cachix
     self.packages.${system}.cemu-ti
     # dolphin-emu
-    (stdenv.mkDerivation {
-      name = "edmentum";
-      src = ../edmentum;
-      dontUnpack = true;
-      installPhase = ''
-        mkdir -p $out/bin
-        cp $src $out/bin/edmentum
-        chmod +x $out/bin/edmentum
-      '';
-      buildInputs = [ python3 ];
-    })
-    elinks
+    # (stdenv.mkDerivation {
+    #   name = "edmentum";
+    #   src = ../edmentum;
+    #   dontUnpack = true;
+    #   installPhase = ''
+    #     mkdir -p $out/bin
+    #     cp $src $out/bin/edmentum
+    #     chmod +x $out/bin/edmentum
+    #   '';
+    #   buildInputs = [ python3 ];
+    # })
+    # elinks
     file
     (writeShellScriptBin "flush-swap" ''
       swapoff -a; systemctl restart swap.target
@@ -43,14 +43,15 @@
     git
     htop
     jmtpfs
+    libqalculate
     librewolf
     man-pages
     man-pages-posix
     moreutils
     narser.packages.${system}.default
     nix-output-monitor
-    nvtopPackages.intel
-    obsidian
+    # nvtopPackages.intel
+    # obsidian
     # (retroarch.overrideAttrs (oldAttrs: {
     #   cores = [ dolphin mgba ];
     # }))
@@ -66,6 +67,6 @@
   ];
 
   # Just testing
-  services.ollama.enable = true;
+  # services.ollama.enable = true;
   home.stateVersion = "24.11";
 }
