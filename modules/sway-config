@@ -240,9 +240,9 @@ bindsym XF86AudioMute exec 'pactl set-sink-mute @DEFAULT_SINK@ toggle'
 #
 # Screen Hotkeys
 #
-bindsym XF86MonBrightnessDown exec sh -c 'if [ -f /sys/class/backlight/acpi_video0 ]; then light -U 10; else light -U 5; fi'
+bindsym XF86MonBrightnessDown exec sh -c 'if [ -d /sys/class/backlight/acpi_video0 ]; then light -U 10; else light -U 5; fi'
 
-bindsym XF86MonBrightnessUp exec sh -c 'if [ -f /sys/class/backlight/acpi_video0 ]; then light -A 10; else light -A 5; fi'
+bindsym XF86MonBrightnessUp exec sh -c 'if [ -d /sys/class/backlight/acpi_video0 ]; then light -A 10; else light -A 5; fi'
 
 bindsym Shift+XF86MonBrightnessDown exec light -U 1
 bindsym Shift+XF86MonBrightnessUp exec light -A 1
