@@ -8,7 +8,7 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    tilp-pkgs.url = "github:myclevorname/nixpkgs/tilp2";
+    ce-programs.url = "github:myclevorname/nix-calculators";
     wallpapers = {
       url = "github:ParrotSec/parrot-wallpapers";
       flake = false;
@@ -27,7 +27,6 @@
       nixpkgs,
       wallpapers,
       home-manager,
-      tilp-pkgs,
       ...
     }@attrs:
     let
@@ -99,7 +98,6 @@
       nixosModules = import ./modules;
       formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-tree;
       packages.x86_64-linux = {
-        tilp = nixpkgs'.callPackage (tilp-pkgs + "/pkgs/by-name/ti/tilp/package.nix") { };
         cemu-ti = nixpkgs'.cemu-ti.overrideAttrs {
           meta.broken = false;
         };

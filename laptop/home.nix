@@ -2,6 +2,7 @@
   pkgs,
   self,
   narser,
+  ce-programs,
   ...
 }:
 {
@@ -57,7 +58,7 @@
     # }))
     prismlauncher
     ripgrep
-    self.packages.${system}.tilp
+    ce-programs.legacyPackages.${system}.tilp2
     unicode-paracode
     unzip
     vim
