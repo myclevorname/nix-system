@@ -247,6 +247,9 @@ bindsym XF86MonBrightnessUp exec sh -c 'if [ -d /sys/class/backlight/acpi_video0
 bindsym Shift+XF86MonBrightnessDown exec light -U 1
 bindsym Shift+XF86MonBrightnessUp exec light -A 1
 
+bindsym Control+XF86MonBrightnessDown exec light -U 0.25
+bindsym Control+XF86MonBrightnessUp exec light -A 0.25
+
 #
 # Steam
 #
