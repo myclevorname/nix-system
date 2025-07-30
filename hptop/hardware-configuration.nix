@@ -29,6 +29,13 @@
     "kvm-amd"
     "wl"
   ];
+
+  # Looking at the CVE summary, I think it is worth the risk to enable this.
+  # Besides, this has a hardware switch!
+  nixpkgs.config.permittedInsecurePackages = [
+    "broadcom-sta-6.30.223.271-57-6.12.40"
+  ];
+
   boot.extraModulePackages = [ config.boot.kernelPackages.broadcom_sta ];
 
   # fix failing to wake after suspend (by disabling it)
@@ -48,14 +55,19 @@
   };
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/e78b828d-0262-41c2-89ad-f706bbae5ed7";
+    device = "/dev/disk/by-uuid/82cb0c70-0f2a-47b7-b3b9-c7e9ced930fb";
     fsType = "ext4";
     # This is a slow HDD...
-    options = [ "noatime" ];
+    # options = [ "noatime" ];
+  };
+
+  boot.initrd.luks.devices."nixos" = {
+    device = "/dev/disk/by-uuid/08633f4f-e738-436d-a6bc-6bec7bf0e355";
+    preLVM = true;
   };
 
   swapDevices = [
-    { device = "/dev/disk/by-uuid/1b50e175-7b46-495f-be96-8f8868a255f2"; }
+    { device = "/dev/disk/by-uuid/5139fc53-8b64-4e2f-b68b-77e62d6a52eb"; }
   ];
 
   fileSystems."/var/tmp" = {

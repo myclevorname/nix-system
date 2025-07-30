@@ -36,7 +36,8 @@
         ./common-configuration.nix
         ./choose.nix
         home-manager.nixosModules.home-manager
-      ] ++ (import ./modules).imported;
+      ]
+      ++ (import ./modules).imported;
     in
     {
       nixosConfigurations =

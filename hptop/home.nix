@@ -2,6 +2,7 @@
   pkgs,
   self,
   narser,
+  ce-programs,
   ...
 }:
 {
@@ -21,7 +22,7 @@
     baobab
     bluetuith
     cachix
-    self.packages.${system}.cemu-ti
+    ce-programs.legacyPackages.${system}.cemu-ti
     (stdenv.mkDerivation {
       name = "edmentum";
       src = ../edmentum;
@@ -45,10 +46,10 @@
     man-pages
     man-pages-posix
     moreutils
-    narser.packages.${system}.default
+    # narser.packages.${system}.default
     nix-output-monitor
     ripgrep
-    self.packages.${system}.tilp
+    ce-programs.legacyPackages.${system}.tilp2
     unzip
     vim
     wf-recorder
