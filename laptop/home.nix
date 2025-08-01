@@ -67,7 +67,7 @@
     zip
   ];
 
-  # Just testing
-  # services.ollama.enable = true;
+  services.ollama.enable = true;
+
   home.stateVersion = "24.11";
 }
