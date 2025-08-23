@@ -57,6 +57,7 @@
     #   cores = [ dolphin mgba ];
     # }))
     prismlauncher
+    poop # 💩
     ripgrep
     ce-programs.legacyPackages.${system}.tilp2
     unicode-paracode
