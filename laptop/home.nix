@@ -50,6 +50,16 @@
     man-pages-posix
     moreutils
     narser.packages.${system}.default
+    (stdenvNoCC.mkDerivation {
+      name = "narser-fast";
+      src = narser.packages.${system}.fast;
+      installPhase = ''
+        mkdir -p $out/bin $out/share/bash-completion/completions
+        ln -s $src/bin/narser $out/bin/narser-fast
+        ln -s $src/share/bash-completion/completions/narser $out/share/bash-completion/completions/narser-fast
+        sed --in-place 's/bashdefault narser/bashdefault narser-fast/' $out/share/bash-completion/completions/narser-fast
+      '';
+    })
     nix-output-monitor
     # nvtopPackages.intel
     # obsidian
