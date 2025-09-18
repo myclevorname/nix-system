@@ -46,7 +46,7 @@
     man-pages
     man-pages-posix
     moreutils
-    # narser.packages.${system}.default
+    narser.packages.${system}.default
     nix-output-monitor
     ripgrep
     ce-programs.legacyPackages.${system}.tilp2
