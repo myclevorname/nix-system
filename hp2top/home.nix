@@ -16,24 +16,11 @@
     '';
   };
 
-  programs.vesktop.enable = true;
-
   home.packages = with pkgs; [
     baobab
     bluetuith
     cachix
     ce-programs.legacyPackages.${system}.cemu-ti
-    (stdenv.mkDerivation {
-      name = "edmentum";
-      src = ../edmentum;
-      dontUnpack = true;
-      installPhase = ''
-        mkdir -p $out/bin
-        cp $src $out/bin/edmentum
-        chmod +x $out/bin/edmentum
-      '';
-      buildInputs = [ python3 ];
-    })
     elinks
     file
     (writeShellScriptBin "flush-swap" ''

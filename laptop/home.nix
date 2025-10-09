@@ -16,25 +16,11 @@
     '';
   };
 
-  # programs.vesktop.enable = true;
-
   home.packages = with pkgs; [
     baobab
     bluetuith
     cachix
     self.packages.${system}.cemu-ti
-    # dolphin-emu
-    # (stdenv.mkDerivation {
-    #   name = "edmentum";
-    #   src = ../edmentum;
-    #   dontUnpack = true;
-    #   installPhase = ''
-    #     mkdir -p $out/bin
-    #     cp $src $out/bin/edmentum
-    #     chmod +x $out/bin/edmentum
-    #   '';
-    #   buildInputs = [ python3 ];
-    # })
     # elinks
     file
     (writeShellScriptBin "flush-swap" ''
@@ -61,8 +47,6 @@
       '';
     })
     nix-output-monitor
-    # nvtopPackages.intel
-    # obsidian
     # (retroarch.overrideAttrs (oldAttrs: {
     #   cores = [ dolphin mgba ];
     # }))
@@ -78,7 +62,7 @@
     zip
   ];
 
-  services.ollama.enable = true;
+  # services.ollama.enable = true;
 
   home.stateVersion = "24.11";
 }
