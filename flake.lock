@@ -6,17 +6,17 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1759916878,
-        "narHash": "sha256-DbQMyazziP2Flzzmstp2h+NGEzMgFPb52qs/oPBU/T0=",
-        "owner": "myclevorname",
-        "repo": "nix-calculators",
-        "rev": "ccc2f0ffbe827c013f8e0663bdbbf45764e88fe6",
-        "type": "github"
+        "lastModified": 1762653704,
+        "narHash": "sha256-aZ1PoEYkbtB3XvBjYV6rPM+3LL6q3fvfO+x7bNRO464=",
+        "ref": "refs/heads/master",
+        "rev": "e7f00a982fee4b8eb37ec5f6aa8375be4b195eb0",
+        "revCount": 138,
+        "type": "git",
+        "url": "https://codeberg.org/clevor/ce-programs"
       },
       "original": {
-        "owner": "myclevorname",
-        "repo": "nix-calculators",
-        "type": "github"
+        "type": "git",
+        "url": "https://codeberg.org/clevor/ce-programs"
       }
     },
     "flake-utils": {
@@ -62,11 +62,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1760033152,
-        "narHash": "sha256-e2g07P6SBJrYdRWw5JEJgh8ssccr+jigYR9p4GS0tME=",
+        "lastModified": 1762463325,
+        "narHash": "sha256-33YUsWpPyeBZEWrKQ2a1gkRZ7i0XCC/2MYpU6BVeQSU=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "5d61767c8dee7f9c66991335795dbca9e801c25a",
+        "rev": "0562fef070a1027325dd4ea10813d64d2c967b39",
         "type": "github"
       },
       "original": {
@@ -78,14 +78,15 @@
     "narser": {
       "inputs": {
         "flake-utils": "flake-utils_2",
-        "nixpkgs": "nixpkgs_2"
+        "nixpkgs": "nixpkgs_2",
+        "zig-src": "zig-src"
       },
       "locked": {
-        "lastModified": 1760029065,
-        "narHash": "sha256-/S4P1xknY0pAaViir90aKDZpOwBr7JiLo6cXhQuxHQc=",
+        "lastModified": 1761920181,
+        "narHash": "sha256-cnRlJOMvDKr3XJbOXr2NUMNwrAzN6bnvmxBEhwnezyY=",
         "ref": "refs/heads/master",
-        "rev": "721ff8ca742dbe3c7d814e04e731025404d7634f",
-        "revCount": 102,
+        "rev": "978fc6286882ec0b6bd8003f7fe34c49c53c41d4",
+        "revCount": 124,
         "type": "git",
         "url": "https://codeberg.org/clevor/narser"
       },
@@ -96,11 +97,11 @@
     },
     "nixos-hardware": {
       "locked": {
-        "lastModified": 1759582739,
-        "narHash": "sha256-spZegilADH0q5OngM86u6NmXxduCNv5eX9vCiUPhOYc=",
+        "lastModified": 1762463231,
+        "narHash": "sha256-hv1mG5j5PTbnWbtHHomzTus77pIxsc4x8VrMjc7+/YE=",
         "owner": "NixOS",
         "repo": "nixos-hardware",
-        "rev": "3441b5242af7577230a78ffb03542add264179ab",
+        "rev": "52113c4f5cfd1e823001310e56d9c8d0699a6226",
         "type": "github"
       },
       "original": {
@@ -127,11 +128,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1756542300,
-        "narHash": "sha256-tlOn88coG5fzdyqz6R93SQL5Gpq+m/DsWpekNFhqPQk=",
+        "lastModified": 1760524057,
+        "narHash": "sha256-EVAqOteLBFmd7pKkb0+FIUyzTF61VKi7YmvP1tw4nEw=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "d7600c775f877cd87b4f5a831c28aa94137377aa",
+        "rev": "544961dfcce86422ba200ed9a0b00dd4b1486ec5",
         "type": "github"
       },
       "original": {
@@ -143,11 +144,11 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1759831965,
-        "narHash": "sha256-vgPm2xjOmKdZ0xKA6yLXPJpjOtQPHfaZDRtH+47XEBo=",
+        "lastModified": 1762363567,
+        "narHash": "sha256-YRqMDEtSMbitIMj+JLpheSz0pwEr0Rmy5mC7myl17xs=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "c9b6fb798541223bbb396d287d16f43520250518",
+        "rev": "ae814fd3904b621d8ab97418f1d0f2eb0d3716f4",
         "type": "github"
       },
       "original": {
@@ -227,6 +228,22 @@
       "original": {
         "owner": "jeremija",
         "repo": "wl-gammarelay",
+        "type": "github"
+      }
+    },
+    "zig-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1760813122,
+        "narHash": "sha256-CQu3xX/6zShcVt6AKpIeo1+Dp4ARsexpnFVRtbFp/uQ=",
+        "owner": "ziglang",
+        "repo": "zig",
+        "rev": "1466401c153e991cd7cddb0c39b1cd361476e8e5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ziglang",
+        "repo": "zig",
         "type": "github"
       }
     }

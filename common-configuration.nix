@@ -38,7 +38,7 @@
     extraGroups = [
       "networkmanager"
       "wheel"
-      # "libvirtd"
+      "libvirtd"
       "users"
     ];
   };

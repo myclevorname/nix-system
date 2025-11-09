@@ -20,7 +20,7 @@
     baobab
     bluetuith
     cachix
-    self.packages.${system}.cemu-ti
+    ce-programs.legacyPackages.${system}.cemu-ti
     # elinks
     file
     (writeShellScriptBin "flush-swap" ''

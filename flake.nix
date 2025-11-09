@@ -8,7 +8,7 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    ce-programs.url = "github:myclevorname/nix-calculators";
+    ce-programs.url = "git+https://codeberg.org/clevor/ce-programs";
     wallpapers = {
       url = "github:ParrotSec/parrot-wallpapers";
       flake = false;
@@ -99,9 +99,6 @@
       nixosModules = import ./modules;
       formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-tree;
       packages.x86_64-linux = {
-        cemu-ti = nixpkgs'.cemu-ti.overrideAttrs {
-          meta.broken = false;
-        };
         wl-gammarelay = nixpkgs'.buildGoModule {
           name = "wl-gammarelay";
           src = attrs.wl-gammarelay;
