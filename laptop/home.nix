@@ -17,6 +17,7 @@
   };
 
   home.packages = with pkgs; [
+    asunder # trying to rip everything except my pants
     baobab
     bluetuith
     cachix

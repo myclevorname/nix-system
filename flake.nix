@@ -18,6 +18,10 @@
       flake = false;
     };
     narser.url = "git+https://codeberg.org/clevor/narser";
+    nixos-mobile = {
+      url = "github:mobile-nixos/mobile-nixos";
+      flake = false;
+    };
   };
   # I will not use flake-utils as I want to reduce the amount of dependencies I have.
 
