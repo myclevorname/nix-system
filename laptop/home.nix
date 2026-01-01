@@ -17,11 +17,16 @@
   };
 
   home.packages = with pkgs; [
+    _9pfs
     asunder # trying to rip everything except my pants
     baobab
     bluetuith
     cachix
     ce-programs.legacyPackages.${system}.cemu-ti
+    (writeShellScriptBin "rpi-connect" ''
+      drawterm -h rpi -p -t 604800
+    '')
+    drawterm
     # elinks
     file
     (writeShellScriptBin "flush-swap" ''

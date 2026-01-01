@@ -6,11 +6,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1763841195,
-        "narHash": "sha256-unNN68V8MVC54Bq8XOjQ4CGV6QjxE0I2WW2mSg9WkHU=",
+        "lastModified": 1767022454,
+        "narHash": "sha256-VtlbgE4w5lQt6l7RRQRkB3xY6vO81yJd17yrdQVL5s0=",
         "ref": "refs/heads/master",
-        "rev": "e9f8c7da84f04a469dbf6af54739151016963bb3",
-        "revCount": 144,
+        "rev": "40b621514ec7ae7de2d327f8586888e9a09c7eaf",
+        "revCount": 152,
         "type": "git",
         "url": "https://codeberg.org/clevor/ce-programs"
       },
@@ -62,11 +62,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1763906693,
-        "narHash": "sha256-inm7paa3myo8gE4TzjM8OPvsEg8xocWreIZBgBPEKgo=",
+        "lastModified": 1767104570,
+        "narHash": "sha256-GKgwu5//R+cLdKysZjGqvUEEOGXXLdt93sNXeb2M/Lk=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "3d6c1c8fa0bea3a1a7ba23d6fa5993116766073b",
+        "rev": "e4e78a2cbeaddd07ab7238971b16468cc1d14daf",
         "type": "github"
       },
       "original": {
@@ -82,11 +82,11 @@
         "zig-src": "zig-src"
       },
       "locked": {
-        "lastModified": 1763033648,
-        "narHash": "sha256-FX0AWygio/m8u70fb3uPNJWhVT/mOrpdbiGjlrtu3ro=",
+        "lastModified": 1767131193,
+        "narHash": "sha256-tEcM3dGvuP1FVs00ZVCxMIN1f0dQVoVhLxnwizIPfT0=",
         "ref": "refs/heads/master",
-        "rev": "1ff51aca60cc60772370f7e06b5fd1d0c3142781",
-        "revCount": 125,
+        "rev": "bf636fe91d45c40487dd697478ed1affdaba462f",
+        "revCount": 131,
         "type": "git",
         "url": "https://codeberg.org/clevor/narser"
       },
@@ -97,11 +97,11 @@
     },
     "nixos-hardware": {
       "locked": {
-        "lastModified": 1762847253,
-        "narHash": "sha256-BWWnUUT01lPwCWUvS0p6Px5UOBFeXJ8jR+ZdLX8IbrU=",
+        "lastModified": 1767185284,
+        "narHash": "sha256-ljDBUDpD1Cg5n3mJI81Hz5qeZAwCGxon4kQW3Ho3+6Q=",
         "owner": "NixOS",
         "repo": "nixos-hardware",
-        "rev": "899dc449bc6428b9ee6b3b8f771ca2b0ef945ab9",
+        "rev": "40b1a28dce561bea34858287fbb23052c3ee63fe",
         "type": "github"
       },
       "original": {
@@ -144,11 +144,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1760524057,
-        "narHash": "sha256-EVAqOteLBFmd7pKkb0+FIUyzTF61VKi7YmvP1tw4nEw=",
+        "lastModified": 1766902085,
+        "narHash": "sha256-coBu0ONtFzlwwVBzmjacUQwj3G+lybcZ1oeNSQkgC0M=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "544961dfcce86422ba200ed9a0b00dd4b1486ec5",
+        "rev": "c0b0e0fddf73fd517c3471e546c0df87a42d53f4",
         "type": "github"
       },
       "original": {
@@ -160,11 +160,11 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1763678758,
-        "narHash": "sha256-+hBiJ+kG5IoffUOdlANKFflTT5nO3FrrR2CA3178Y5s=",
+        "lastModified": 1766902085,
+        "narHash": "sha256-coBu0ONtFzlwwVBzmjacUQwj3G+lybcZ1oeNSQkgC0M=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "117cc7f94e8072499b0a7aa4c52084fa4e11cc9b",
+        "rev": "c0b0e0fddf73fd517c3471e546c0df87a42d53f4",
         "type": "github"
       },
       "original": {
@@ -219,11 +219,11 @@
     "wallpapers": {
       "flake": false,
       "locked": {
-        "lastModified": 1725656779,
-        "narHash": "sha256-ov1Fl9yqGCVVqXRhgGTLfxvFbXmNB7WiLCqWAe44Gpw=",
+        "lastModified": 1764685360,
+        "narHash": "sha256-oqGi4Vj7jFLZI0kIn1+1+oxdoy4k4L6qyz3a8QgX+hg=",
         "owner": "ParrotSec",
         "repo": "parrot-wallpapers",
-        "rev": "bd18597d4378377fd99aa762ccc79eaa85bf70cc",
+        "rev": "4d74f37fdff1ef0948beab608e537c294d82c280",
         "type": "github"
       },
       "original": {
@@ -251,17 +251,17 @@
     "zig-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1760813122,
-        "narHash": "sha256-CQu3xX/6zShcVt6AKpIeo1+Dp4ARsexpnFVRtbFp/uQ=",
-        "owner": "ziglang",
-        "repo": "zig",
-        "rev": "1466401c153e991cd7cddb0c39b1cd361476e8e5",
-        "type": "github"
+        "lastModified": 1767041383,
+        "narHash": "sha256-lLQqFpo7LaGtRa1/8C0hKavtjrnguGnVG/rSHG+/lCY=",
+        "ref": "refs/heads/master",
+        "rev": "f862762f091637ad0d17c4735226c0c477c2cb3e",
+        "revCount": 36431,
+        "type": "git",
+        "url": "https://codeberg.org/ziglang/zig"
       },
       "original": {
-        "owner": "ziglang",
-        "repo": "zig",
-        "type": "github"
+        "type": "git",
+        "url": "https://codeberg.org/ziglang/zig"
       }
     }
   },

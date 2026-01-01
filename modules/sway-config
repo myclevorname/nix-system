@@ -271,6 +271,9 @@ bindsym XF86AudioMicMute exec amixer set Capture toggle
 
 bindsym $mod+e exec librewolf
 
+# when I use the laptop connected to the TV
+bindsym $mod+p exec swaymsg gaps horizontal all toggle 7 && swaymsg output eDP-1 toggle
+output HDMI-A-1 scale 1.5
 
 output LVDS-1 {
 	# aah too big

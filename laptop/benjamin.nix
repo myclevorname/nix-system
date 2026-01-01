@@ -23,7 +23,7 @@
         extraGroups = [
           "users"
         ];
-        packages = with pkgs; [ openjdk23 ];
+        packages = with pkgs; [ openjdk ];
       };
 
       services = {

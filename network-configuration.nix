@@ -24,16 +24,11 @@
       "laptop.local"
       "laptop"
     ];
-    # "172.16.0.121" = [ "clevor-rpi-nixos" "rpi.local" "rpi" ];
-    "172.16.0.158" = [
-      "clevor-hptop-nixos"
-      "hptop.local"
-      "hptop"
-    ];
-    "172.16.0.167" = [
-      "clevor-phone-pmos"
-      "phone.local"
-      "phone"
+    "172.16.0.190" = [
+      # "clevor-rpi-nixos"
+      "clevor-rpi-9front"
+      "rpi.local"
+      "rpi"
     ];
   };
 }
