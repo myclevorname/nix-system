@@ -1,7 +1,6 @@
 {
   pkgs,
   self,
-  narser,
   ce-programs,
   ...
 }:
@@ -33,7 +32,6 @@
     man-pages
     man-pages-posix
     moreutils
-    narser.packages.${system}.default
     nix-output-monitor
     ripgrep
     ce-programs.legacyPackages.${system}.tilp2

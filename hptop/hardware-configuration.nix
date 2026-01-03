@@ -33,7 +33,7 @@
   # Looking at the CVE summary, I think it is worth the risk to enable this.
   # Besides, this has a hardware switch!
   nixpkgs.config.permittedInsecurePackages = [
-    "broadcom-sta-6.30.223.271-57-6.12.40"
+    "broadcom-sta-6.30.223.271-59-6.12.63"
   ];
 
   boot.extraModulePackages = [ config.boot.kernelPackages.broadcom_sta ];
