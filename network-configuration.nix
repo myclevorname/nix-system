@@ -30,5 +30,10 @@
       "rpi.local"
       "rpi"
     ];
+    "172.16.0.157" = [
+      "clevor-hptop-nixos"
+      "hptop.local"
+      "hptop"
+    ];
   };
 }
