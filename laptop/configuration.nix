@@ -33,8 +33,6 @@
   # Support the Joycon controllers
   # services.joycond.enable = true;
 
-  programs.gnupg.agent.enable = true;
-
   services.printing.enable = true;
   services.avahi = {
     enable = true;
