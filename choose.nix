@@ -8,11 +8,11 @@
 let
   configs = [
     "laptop"
-    "rpi"
+    # "rpi"
     "hptop"
     "hp2top"
   ];
-  inherit (lib.strings) hasInfix hasSuffix;
+  inherit (lib.strings) hasInfix;
   inherit (lib.lists) findFirst;
   inherit (lib.trivial) throwIf;
   flip =
@@ -24,27 +24,27 @@ let
       name = findFirst (flip hasInfix hostname) null configs;
     in
     throwIf (name == null) "Hostname ${configName} does not correspond to a valid host." name;
-  isGeneric = hasSuffix "generic";
   path = ./. + "/${pickConfig configName}";
 in
 {
-  imports =
-    (
-      if !isGeneric configName then
-        [
-          (path + "/hardware-configuration.nix")
-          ./network-configuration.nix
-          ./secrets.nix
-        ]
-      else
-        [ ]
-    )
-    ++ [ (path + "/configuration.nix") ];
+  imports = [
+    (path + "/hardware-configuration.nix")
+    ./network-configuration.nix
+    ./secrets.nix
+    (path + "/configuration.nix")
+  ];
+
   home-manager = {
     backupFileExtension = "hm.bak";
     extraSpecialArgs = inputs;
     useGlobalPkgs = true;
     useUserPackages = true;
-    users.clevor = import (path + "/home.nix");
+    users.clevor = {
+      imports = [
+        (path + "/home.nix")
+        ./common-home.nix
+      ];
+
+    };
   };
 }

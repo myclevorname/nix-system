@@ -48,38 +48,23 @@
         (
           list:
           builtins.listToAttrs (
-            nixpkgs'.lib.lists.flatten (
-              builtins.map (
-                { name, system }:
-                let
-                  hostname = "clevor-" + name + "-nixos";
-                in
-                [
-                  {
-                    name = hostname;
-                    value = nixpkgs.lib.nixosSystem {
-                      inherit system;
-                      specialArgs = attrs // {
-                        configName = hostname;
-                        inputs = attrs;
-                      };
-                      modules = commonConfig;
-                    };
-                  }
-                  {
-                    name = hostname + "-generic";
-                    value = nixpkgs.lib.nixosSystem {
-                      inherit system;
-                      specialArgs = attrs // {
-                        configName = hostname + "-generic";
-                        inputs = attrs;
-                      };
-                      modules = commonConfig;
-                    };
-                  }
-                ]
-              ) list
-            )
+            builtins.map (
+              { name, system }:
+              let
+                hostname = "clevor-" + name + "-nixos";
+              in
+              {
+                name = hostname;
+                value = nixpkgs.lib.nixosSystem {
+                  inherit system;
+                  specialArgs = attrs // {
+                    configName = hostname;
+                    inputs = attrs;
+                  };
+                  modules = commonConfig;
+                };
+              }
+            ) list
           )
         )
           [
@@ -95,10 +80,10 @@
               name = "hp2top";
               system = "x86_64-linux";
             }
-            {
-              name = "rpi";
-              system = "aarch64-linux";
-            }
+            # {
+            #   name = "rpi";
+            #   system = "aarch64-linux";
+            # }
           ];
       nixosModules = import ./modules;
       formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-tree;
